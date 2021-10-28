@@ -1,0 +1,78 @@
+@use 'src/styles/vars';
+@use 'src/styles/mixins';
+
+.header {
+  height: 43rem;
+  background-size: cover;
+  background-position: center;
+  background-image: url('../../assets/img/oysters-1209767_1920.jpg');
+
+  .nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 5rem;
+    color: vars.$colorLightText;
+    font-weight: bold;
+
+    .nav_menuLeft {
+      min-height: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      font-family: vars.$indie;
+      font-size: vars.$textSize - 0.5;
+
+      li {
+        margin-right: 2.5rem;
+      }
+    }
+    .nav_menuRight {
+      min-height: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      font-family: vars.$indie;
+      font-size: vars.$textSize - 0.5;
+
+      li {
+        margin-left: 1.5rem;
+      }
+    }
+
+    h1 {
+      font-size: vars.$textSizeBig + 1.5;
+      margin-top: 7rem;
+      text-shadow: vars.$textShadowHeader;
+      font-family: vars.$dancing;
+    }
+  }
+  .header_picture--button {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .header_logo {
+      height: 18rem;
+      width: auto;
+      border-radius: 15rem;
+      background: vars.$colorLightText;
+      margin-bottom: 2.2rem;
+    }
+
+    .header_button {
+      height: 5rem;
+      background-color: vars.$colorButtonNav;
+      color: vars.$colorLightText;
+      font-weight: bold;
+      font-size: vars.$textSize;
+      text-align: center;
+      border: none;
+      border-radius: 15rem;
+      margin: vars.$margin;
+      padding: 1rem 2rem;
+    }
+  }
+}

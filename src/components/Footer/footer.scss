@@ -1,0 +1,52 @@
+@use "src/styles/vars";
+@use "src/styles/mixins";
+
+.footer {
+  height: 27rem;
+  background: vars.$colorBackgroundFooter;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .footer_wrapper {
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+ 
+    img {
+      height: 12rem;
+      width: auto;
+      background: vars.$colorLightText;
+      border-radius: 20rem;
+    }
+
+    .footer_horaire {
+      line-height: 2rem;
+
+      h3 {
+        color: vars.$colorLightText;
+        font-weight: bold;
+      }
+
+      p {
+        color: vars.$colorTextFooter;
+        font-weight: bold;
+      }
+    }
+
+    .footer_address {
+      line-height: 2rem;
+
+      h3 {
+        color: vars.$colorLightText;
+        font-weight: bold;
+      }
+
+      p {
+        color: vars.$colorTextFooter;
+        font-weight: bold;
+      }
+    }
+  }
+}
