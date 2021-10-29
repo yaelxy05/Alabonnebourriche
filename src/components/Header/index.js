@@ -2,6 +2,7 @@
 import React from 'react';
 // == Import components
 import Nav from './Nav';
+
 // == Import
 import './header.scss';
 // == Import img
