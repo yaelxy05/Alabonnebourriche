@@ -30,11 +30,26 @@
     align-items: flex-start;
     width: 100%;
     margin-top: 3rem;
+    @include mixins.for-phone-and-tablet-only {
+      flex-direction: column;
+      align-items: center;
+    }
 
     img {
       height: 40rem;
       width: auto;
       border-radius: 2rem;
+      @include mixins.for-desktop-small-medium {
+        height: 30rem;
+      }
+      @include mixins.for-tablet-portrait-up {
+        height: 25rem;
+        margin-bottom: 2rem;
+      }
+      @include mixins.for-phone-only {
+        height: 20rem;
+        margin-bottom: 2rem;
+      }
     }
 
     .text_wrapper {
@@ -43,11 +58,20 @@
       justify-content: flex-start;
       min-height: 100%;
       margin-left: 4rem;
+      @include mixins.for-phone-and-tablet-only {
+        margin: 0;
+      }
 
       p {
         width: 30rem;
         line-height: 1.5rem;
         color: vars.$colorTextPara;
+        @include mixins.for-desktop-small-medium {
+          width: 20rem;
+        }
+        @include mixins.for-phone-only {
+          width: 12rem;
+        }
       }
 
       button {
@@ -59,6 +83,9 @@
         border-radius: 10rem;
         margin-top: 2rem;
         align-self: flex-start;
+        @include mixins.for-phone-and-tablet-only {
+          align-self: center;
+        }
       }
     }
   }
