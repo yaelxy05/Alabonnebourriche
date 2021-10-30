@@ -7,23 +7,49 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  @include mixins.for-phone-and-tablet-only {
+    height: 40rem;
+  }
 
   .footer_wrapper {
     width: 90%;
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
+    @include mixins.for-phone-and-tablet-only {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
  
     img {
       height: 12rem;
       width: auto;
       background: vars.$colorLightText;
       border-radius: 20rem;
+      @include mixins.for-phone-and-tablet-only {
+        margin-bottom: 2rem;
+      }
     }
 
-    .footer_horaire {
-      line-height: 2rem;
+    .footer_info {
+      display: flex;
+      
+      @include mixins.for-phone-and-tablet-only {
+        flex-direction: column;
+        width: 50%;
+      }
 
+      .footer_horaire {
+      line-height: 2rem;
+      margin-right: 3rem;
+      @include mixins.for-phone-and-tablet-only {
+        margin-right: 0;
+        margin-top: 2rem;
+      }
+      @include mixins.for-desktop-small-medium {
+        margin-left: 3rem;
+      }
       h3 {
         color: vars.$colorLightText;
         font-weight: bold;
@@ -37,6 +63,11 @@
 
     .footer_address {
       line-height: 2rem;
+      margin-left: 3rem;
+      @include mixins.for-phone-and-tablet-only {
+        margin-left: 0;
+        margin-top: 2rem;
+      }
 
       h3 {
         color: vars.$colorLightText;
@@ -48,5 +79,7 @@
         font-weight: bold;
       }
     }
+    }
+    
   }
 }
