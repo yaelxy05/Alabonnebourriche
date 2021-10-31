@@ -1,0 +1,50 @@
+@use 'src/styles/vars';
+@use 'src/styles/mixins';
+
+.header {
+  height: 46rem;
+  background-size: cover;
+  background-position: center;
+  background-image: url('../../../assets/img/oysters-1209767_1920.jpg');
+  @include mixins.for-desktop-small-medium {
+    height: 50rem;
+  }
+
+  
+  .header_picture--button {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .header_logo {
+      height: 18rem;
+      width: auto;
+      border-radius: 15rem;
+      background: vars.$colorLightText;
+      margin-bottom: 2.2rem;
+      @include mixins.for-phone-only {
+        height: 14rem;
+      }
+    }
+
+    .header_button {
+      height: 5rem;
+      background-color: vars.$colorButtonNav;
+      color: vars.$colorLightText;
+      font-weight: bold;
+      font-size: vars.$textSize;
+      text-align: center;
+      border: none;
+      border-radius: 15rem;
+      margin: vars.$margin;
+      padding: 1rem 2rem;
+
+      @include mixins.for-phone-only {
+        height: 4rem;
+        font-size: vars.$textSizeSmall;
+      }
+    }
+  }
+}

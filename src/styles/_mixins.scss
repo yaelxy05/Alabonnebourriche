@@ -1,4 +1,16 @@
-@use 'src/styles/vars';
+@use "src/styles/vars";
+
+@mixin h1Page {
+  color: vars.$colorBackgroundFooter;
+  font-weight: bold;
+  font-size: vars.$textSizeBig + 1;
+  text-align: center;
+  line-height: 4rem;
+  height: 3rem;
+  margin: 8rem 0;
+  font-family: vars.$dancing;
+  text-transform: capitalize;
+}
 
 @mixin flexStartCenter {
   display: flex;

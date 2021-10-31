@@ -1,0 +1,40 @@
+@use 'src/styles/vars';
+@use 'src/styles/mixins';
+
+.restaurant {
+  min-height: 100%;
+  h1 {
+    @include mixins.h1Page;
+  }
+  
+  .restaurant_presentation {
+    display: flex;
+    justify-content: center;
+    margin: 5rem;
+
+    img {
+      height: 30rem;
+      width: auto;
+      margin-right: 2rem;
+    }
+
+    p {
+      font-size: vars.$textSizeSmall + 0.5;
+      color: vars.$colorBackgroundFooter;
+    }
+    button {
+      width: 12rem;
+      height: 3rem;
+      background: vars.$colorButtonNav;
+      color: vars.$colorLightText;
+      font-weight: bold;
+      border: none;
+      border-radius: 10rem;
+      margin-top: 2rem;
+      align-self: flex-start;
+      @include mixins.for-phone-and-tablet-only {
+        align-self: center;
+      }
+    }
+  }
+}

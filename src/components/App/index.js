@@ -5,7 +5,7 @@ import { Route, Switch } from "react-router-dom";
 import Home from "src/components/Home";
 import Footer from "src/components/Footer";
 import Page404 from "src/components/404";
-import Header from "src/components/Header";
+import Nav from "src/components/Nav";
 import Restaurant from "src/components/Restaurant";
 import Localisation from "src/components/Localisation";
 import Reservation from "src/components/Reservation";
@@ -17,7 +17,7 @@ import "./app.scss";
 // == Composant
 const App = () => (
   <div className="app">
-    <Header />
+    <Nav />
     <Switch>
       <Route path="/connexion">
         <Login />
