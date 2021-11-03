@@ -28,7 +28,7 @@
       background: vars.$colorLightText;
       border-radius: 20rem;
       @include mixins.for-phone-and-tablet-only {
-        margin-bottom: 2rem;
+        margin: 0 3rem;
       }
     }
 
