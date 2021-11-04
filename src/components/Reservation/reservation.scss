@@ -1,0 +1,15 @@
+@use "src/styles/vars";
+@use "src/styles/mixins";
+
+.reservation {
+  min-height: 100%;
+
+  h1 {
+    @include mixins.h1Page;
+  }
+
+  .reservation_wrapper {
+    display: flex;
+    justify-content: center;
+  }
+}

@@ -11,6 +11,9 @@ import './localisation.scss';
 const Localisation = () => (
   <div className="localisation">
     <h1>Nous trouver</h1>
+    <div className="localisation_map">
+      
+    </div>
   </div>
 );
 
