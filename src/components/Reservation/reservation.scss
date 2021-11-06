@@ -11,5 +11,56 @@
   .reservation_wrapper {
     display: flex;
     justify-content: center;
+    margin-bottom: 12rem;
+
+    form {
+      .reservation_input {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+
+        input {
+          height: 3rem;
+          width: 100%;
+          padding-left: 1rem;
+        }
+        button {
+          height: 3rem;
+
+        }
+        label {
+          margin-bottom: 0.5rem;
+        }
+
+        .reservation_wrapper--button {
+          input {
+            width: 70%;
+          }
+          button {
+            width: 15%;
+          }
+        }
+      }
+      .number {
+        input[type="number"] {
+          -webkit-appearance: textfield;
+             -moz-appearance: textfield;
+                  appearance: textfield;
+        }
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button { 
+          -webkit-appearance: none;
+        }
+      }
+
+      .reservation_calendar {
+        margin-bottom: 1rem;
+      }
+
+      .reservation_button {
+        @include mixins.buttonBlue;
+        align-self: center;
+      }
+    }
   }
 }

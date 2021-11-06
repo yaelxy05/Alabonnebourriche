@@ -1,5 +1,16 @@
 @use "src/styles/vars";
 
+@mixin buttonBlue {
+  width: 12rem;
+  height: 3rem;
+  background: vars.$colorButtonNav;
+  color: vars.$colorLightText;
+  font-weight: bold;
+  border: none;
+  border-radius: 10rem;
+  margin-top: 2rem;
+}
+
 @mixin h1Page {
   color: vars.$colorBackgroundFooter;
   font-weight: bold;
