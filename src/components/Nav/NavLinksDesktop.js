@@ -23,6 +23,11 @@ const NavLinksDesktop = (props) => {
             Nous trouver
           </NavLink>
         </li>
+        <li onClick={() => props.isMobile && props.closeMobileMenu()}>
+          <NavLink exact to="/notre-carte" activeClassName="current">
+            Notre carte
+          </NavLink>
+        </li>
       </ul>
       <h1>A la bonne bourriche</h1>
       <ul className="nav_menuRight">

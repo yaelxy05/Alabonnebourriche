@@ -11,6 +11,7 @@ import Localisation from "src/components/Localisation";
 import Reservation from "src/components/Reservation";
 import Register from "src/components/Register";
 import Login from "src/components/Login";
+import Menu from "src/components/Menu";
 // == Import
 import "./app.scss";
 
@@ -30,6 +31,9 @@ const App = () => (
       </Route>
       <Route path="/nous-trouver">
         <Localisation />
+      </Route>
+      <Route path="/notre-carte">
+        <Menu />
       </Route>
       <Route path="/restaurant">
         <Restaurant />

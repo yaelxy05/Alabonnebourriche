@@ -1,0 +1,50 @@
+@use "src/styles/vars";
+@use "src/styles/mixins";
+
+.Inscription {
+  min-height: 100%;
+
+  h1 {
+    @include mixins.h1Page;
+  }
+
+  .Inscription_wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 12rem;
+
+    form {
+      @include mixins.for-phone-only {
+        width: 70%;
+      }
+
+      .Inscription_input {
+        margin-bottom: 2rem;
+        input {
+          height: 3rem;
+          width: 100%;
+          padding-left: 1rem;
+          margin-top: 0.5rem;
+          border: solid vars.$colorBackgroundFooter 1px;
+
+          &:focus {
+            border-bottom: 3.5px solid vars.$colorBorderBottom;
+          }
+        }
+
+        label {
+          font-weight: bold;
+        }
+      }
+      .button_submit {
+        display: flex;
+        justify-content: center;
+
+        .Inscription_button {
+          @include mixins.buttonBlue;
+          align-self: center;
+        }
+      }
+    }
+  }
+}

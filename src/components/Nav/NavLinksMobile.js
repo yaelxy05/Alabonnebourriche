@@ -24,6 +24,11 @@ const NavLinksMobile = (props) => {
         </NavLink>
       </li>
       <li onClick={() => props.isMobile && props.closeMobileMenu()}>
+          <NavLink exact to="/notre-carte" activeClassName="current">
+            Notre carte
+          </NavLink>
+        </li>
+      <li onClick={() => props.isMobile && props.closeMobileMenu()}>
         <NavLink exact to="/reservation" activeClassName="current">
           Réservation
         </NavLink>
