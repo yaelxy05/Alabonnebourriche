@@ -13,7 +13,7 @@ import "./reservation.scss";
 const Reservation = () => {
   const [value, onChange] = useState(new Date());
   const [count, setCount] = useState(1);
-  
+
   const handleClick = (e) => {
     e.preventDefault();
     if (e.target.name === "add") {
@@ -48,9 +48,18 @@ const Reservation = () => {
           <div className="reservation_input number">
             <label>Nombre de personne(s) : </label>
             <div className="reservation_wrapper--button">
-              <button name="substract"  onClick={handleClick}>-</button>
-              <input type="number" min={1} value={count} onChange={handleChange}/>
-              <button name="add" onClick={handleClick}>+</button>
+              <button name="substract" onClick={handleClick}>
+                -
+              </button>
+              <input
+                type="number"
+                min={1}
+                value={count}
+                onChange={handleChange}
+              />
+              <button name="add" onClick={handleClick}>
+                +
+              </button>
             </div>
           </div>
           <label>Sélectionnez le jour</label>
@@ -58,28 +67,28 @@ const Reservation = () => {
             onChange={onChange}
             value={value}
             className="reservation_calendar"
+            minDate={new Date()}
           />
-
 
           <div className="reservation_input hours">
             <label>Sélectionnez un horaire</label>
             <div className="reservation_wrapper--button">
-              <button>12h00</button>
-              <button>12h30</button>
-              <button>13h00</button>
-              <button>20h00</button>
-              <button>20h30</button>
-              <button>21h00</button>
-              <button>21h30</button>
+              <select name="hour" id="reservation_hour">
+                <option value="12h00">12h00</option>
+                <option value="12h30">12h30</option>
+                <option value="13h00">13h00</option>
+                <option value="20h00">20h00</option>
+                <option value="20h30">20h30</option>
+                <option value="21h00">21h00</option>
+                <option value="21h30">21h30</option>
+              </select>
             </div>
           </div>
-          <button
-            type="submit"
-            className="reservation_button"
-            
-          >
-            Validez votre réservation
-          </button>
+          <div className="button_submit">
+            <button type="submit" className="reservation_button">
+              Validez votre réservation
+            </button>
+          </div>
         </form>
       </div>
     </div>

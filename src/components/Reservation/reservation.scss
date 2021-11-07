@@ -14,6 +14,9 @@
     margin-bottom: 12rem;
 
     form {
+      label {
+        font-weight: bold;
+      }
       .reservation_input {
         display: flex;
         flex-direction: column;
@@ -23,15 +26,19 @@
           height: 3rem;
           width: 100%;
           padding-left: 1rem;
+          border: solid vars.$colorBackgroundFooter 1px;
+          
+          &:focus {
+            border-bottom: 3.5px solid vars.$colorBorderBottom;
+          }
         }
         button {
           height: 3rem;
-
         }
         label {
           margin-bottom: 0.5rem;
+          font-weight: bold;
         }
-
         .reservation_wrapper--button {
           input {
             width: 70%;
@@ -44,23 +51,39 @@
       .number {
         input[type="number"] {
           -webkit-appearance: textfield;
-             -moz-appearance: textfield;
-                  appearance: textfield;
+          -moz-appearance: textfield;
+          appearance: textfield;
         }
-        input[type=number]::-webkit-inner-spin-button, 
-        input[type=number]::-webkit-outer-spin-button { 
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
           -webkit-appearance: none;
+        }
+        button {
+          background: vars.$colorButtonNav;
+          border: solid vars.$colorBackgroundFooter 2px;
+          color: vars.$colorLightText;
+          font-weight: bold;
+          border: none;
         }
       }
 
       .reservation_calendar {
+        margin-top: 0.5rem;
         margin-bottom: 1rem;
+        margin-right: 0;
+        width: 371px;
       }
 
-      .reservation_button {
+      .button_submit {
+        display: flex;
+        justify-content: center;
+
+        .reservation_button {
         @include mixins.buttonBlue;
         align-self: center;
       }
+      }
+      
     }
   }
 }
