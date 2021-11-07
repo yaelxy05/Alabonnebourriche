@@ -13,7 +13,7 @@ import "./reservation.scss";
 const Reservation = () => {
   const [value, onChange] = useState(new Date());
   const [count, setCount] = useState(1);
-
+  // function for increment and decrement count
   const handleClick = (e) => {
     e.preventDefault();
     if (e.target.name === "add") {
@@ -22,7 +22,7 @@ const Reservation = () => {
       setCount(count - 1);
     }
   };
-
+  // function for get value of count
   const handleChange = (e) => {
     setCount(e.target.value);
   };
@@ -35,15 +35,15 @@ const Reservation = () => {
         <form action="">
           <div className="reservation_input lastname">
             <label>Nom</label>
-            <input type="text" placeholder="Nom de famille" />
+            <input type="text" placeholder="Nom de famille" required/>
           </div>
           <div className="reservation_input phone">
             <label>Numéros de téléphone</label>
-            <input type="text" placeholder="Téléphone" />
+            <input type="text" placeholder="Téléphone" required/>
           </div>
           <div className="reservation_input email">
             <label>Email</label>
-            <input type="text" placeholder="Email" />
+            <input type="text" placeholder="Email" required/>
           </div>
           <div className="reservation_input number">
             <label>Nombre de personne(s) : </label>
@@ -56,6 +56,7 @@ const Reservation = () => {
                 min={1}
                 value={count}
                 onChange={handleChange}
+                required
               />
               <button name="add" onClick={handleClick}>
                 +
@@ -67,13 +68,15 @@ const Reservation = () => {
             onChange={onChange}
             value={value}
             className="reservation_calendar"
+            tileClassName="reservation_tile"
             minDate={new Date()}
+            required
           />
 
           <div className="reservation_input hours">
             <label>Sélectionnez un horaire</label>
-            <div className="reservation_wrapper--button">
-              <select name="hour" id="reservation_hour">
+            <div className="reservation_wrapper--select">
+              <select name="hour" id="reservation_hour" required>
                 <option value="12h00">12h00</option>
                 <option value="12h30">12h30</option>
                 <option value="13h00">13h00</option>
