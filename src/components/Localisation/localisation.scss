@@ -7,4 +7,12 @@
   h1 {
     @include mixins.h1Page;
   }
+
+  .localisation_map {
+    .marker-label {
+      margin-bottom: 2.9rem;
+      opacity: 0.8;
+      color: vars.$colorBorderBottom;
+    }
+  }
 }

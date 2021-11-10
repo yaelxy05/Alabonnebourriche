@@ -40,6 +40,8 @@
         width: 100%;
         display: flex;
         justify-content: flex-start;
+        margin-bottom: 2rem;;
+        
         @include mixins.for-phone-and-tablet-only {
           flex-direction: column;
           justify-content: center;

@@ -11,10 +11,18 @@
   }
 
   .restaurant_presentation {
+    .restaurant_picture_box {
+      display: flex;
+      flex-direction: column;
+
+      img {
+        margin-bottom: 2rem;
+      }
+    }
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     margin: 5rem;
     @include mixins.for-phone-and-tablet-only {
       flex-direction: column;
