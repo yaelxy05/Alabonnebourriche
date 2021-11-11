@@ -1,6 +1,8 @@
 import React from "react";
 import { GoogleMap, LoadScript, Marker,  } from "@react-google-maps/api";
-import Icon from "../../assets/img/fisherman.png";
+
+const apiGoogleMap = process.env.REACT_APP_API_KEY;
+
 const containerStyle = {
   width: "100%",
   height: "600px",
@@ -21,9 +23,9 @@ const label = {
   
 const classGoogleMap = "googleMapCustom";
 
-function MyComponent(props) {
+function MyComponent() {
   return (
-    <LoadScript googleMapsApiKey="AIzaSyBVFgwQgfEExFsL-vdikI0pLkbEd0oEDz8">
+    <LoadScript googleMapsApiKey={apiGoogleMap}>
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
