@@ -1,12 +1,11 @@
 import { UPDATE_REGISTER_FIELD } from 'src/actions/register';
 
 const initialState = {
-  mail: '',
+  email: '',
   password: '',
   confirmPassword: '',
   address: '',
-  firstName: '',
-  lastName: '',
+  name: '',
   phoneNumber: '',
 };
 
@@ -15,18 +14,12 @@ function registerReducer(state = initialState, action) {
     case UPDATE_REGISTER_FIELD:
       return {
         ...state,
-        mail: action.name === 'mail' ? action.newValue : state.mail,
+        email: action.name === 'email' ? action.newValue : state.email,
         password: action.name === 'password' ? action.newValue : state.password,
-        confirmPassword:
-          action.name === 'confirmPassword'
-            ? action.newValue
-            : state.confirmPassword,
+        confirmPassword: action.name === 'confirmPassword' ? action.newValue : state.confirmPassword,
         address: action.name === 'address' ? action.newValue : state.address,
-        lastName: action.name === 'lastName' ? action.newValue : state.lastName,
-        firstName:
-          action.name === 'firstName' ? action.newValue : state.firstName,
-        phoneNumber:
-          action.name === 'phoneNumber' ? action.newValue : state.phoneNumber,
+        name: action.name === 'name' ? action.newValue : state.name,
+        phoneNumber: action.name === 'phoneNumber' ? action.newValue : state.phoneNumber,
       };
 
     default:

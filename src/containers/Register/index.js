@@ -4,11 +4,10 @@ import { updateRegisterField, newUserCreation } from 'src/actions/register';
 import Register from 'src/components/Register';
 
 const mapStateToProps = (state) => ({
-  mail: state.register.mail,
+  email: state.register.email,
   password: state.register.password,
   confirmPassword: state.register.confirmPassword,
-  firstName: state.register.firstName,
-  lastName: state.register.lastName,
+  name: state.register.name,
   address: state.register.address,
   phoneNumber: state.register.phoneNumber,
 });

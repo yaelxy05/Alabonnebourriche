@@ -11,8 +11,21 @@
   .login_wrapper {
     display: flex;
     justify-content: center;
-    margin-bottom: 12rem;
-
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 4rem;
+    .login-form--logged {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    
+      .login-form--message {
+        color: vars.$colorBackgroundFooter;
+        font-weight: bold;
+        font-family: vars.$dancing;
+        font-size: 1.2rem;
+      }
+    }
     form {
       @include mixins.for-phone-only {
         width: 70%;

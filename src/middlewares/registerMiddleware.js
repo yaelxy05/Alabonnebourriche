@@ -2,27 +2,25 @@ import axios from 'axios';
 
 import { NEW_USER_CREATION } from 'src/actions/register';
 
-const API_URL = '';
+const API_URL = 'http://localhost:8081/api';
 
 const registerMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case NEW_USER_CREATION: {
       const {
-        mail,
+        email,
         password,
         confirmPassword,
-        lastName,
-        firstName,
+        name,
         address,
         phoneNumber,
       } = store.getState().register;
 
       const newUser = {
-        mail,
+        email,
         password,
         confirmPassword,
-        lastName,
-        firstName,
+        name,
         address,
         phoneNumber,
       };

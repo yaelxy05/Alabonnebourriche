@@ -4,7 +4,7 @@ import { LOG_IN, saveUser, LOG_OUT, REFRESH_LOGIN } from 'src/actions/auth';
 
 
 
-const API_URL = '';
+const API_URL = 'http://localhost:8081/api';
 
 const authMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -19,6 +19,7 @@ const authMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           localStorage.setItem('token', response.data.token);
           store.dispatch(saveUser(response.data.token));
+          console.log(response);
         })
         .catch((error) => {
           console.log(error);
@@ -26,7 +27,7 @@ const authMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
     }
-
+   
     case REFRESH_LOGIN: {
       if (localStorage.getItem('token') !== null) {
         store.dispatch(saveUser(localStorage.getItem('token')));
