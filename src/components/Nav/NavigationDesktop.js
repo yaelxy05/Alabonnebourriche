@@ -2,10 +2,10 @@
 import React from "react";
 import NavLinksDesktop from "./NavLinksDesktop";
 // == Composant
-const NavigationDesktop = () => {
+const NavigationDesktop = ({isLogged, handleLogout}) => {
   return (
     <div className="nav_desktop">
-      <NavLinksDesktop />
+      <NavLinksDesktop isLogged={isLogged} handleLogout={handleLogout}/>
     </div>
   );
   

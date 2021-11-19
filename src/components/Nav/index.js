@@ -3,11 +3,11 @@ import React from "react";
 import NavigationDesktop from "./NavigationDesktop";
 import MobileNavigation from "./NavigationMobile";
 // == Composant
-const Nav = () => {
+const Nav = ({  handleLogout, isLogged, toggleMenu, isShow}) => {
   return (
     <div className="nav">
-      <NavigationDesktop />
-      <MobileNavigation />
+      <NavigationDesktop isLogged={isLogged} handleLogout={handleLogout}/>
+      <MobileNavigation isLogged={isLogged} handleLogout={handleLogout} toggleMenu={toggleMenu} isShow={isShow}/>
     </div>
   );
 };

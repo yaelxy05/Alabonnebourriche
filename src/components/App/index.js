@@ -1,23 +1,24 @@
 // == Import npm
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 // == Import components
 import Home from "src/components/Home";
 import Footer from "src/components/Footer";
 import Page404 from "src/components/404";
-import Nav from "src/components/Nav";
+import Nav from "src/containers/Nav";
 import Restaurant from "src/components/Restaurant";
 import Localisation from "src/components/Localisation";
 import Reservation from "src/components/Reservation";
-import Register from 'src/containers/Register';
+import Register from "src/containers/Register";
 import Login from "src/containers/Login";
 import Menu from "src/components/Menu";
+import UserSpace from "src/components/UserSpace";
 // == Import
 import "./app.scss";
 
 // == Composant
-const App = ({isLogged, checkLogin}) => {
+const App = ({ isLogged, checkLogin }) => {
   useEffect(() => {
     checkLogin();
   }, []);
@@ -31,6 +32,12 @@ const App = ({isLogged, checkLogin}) => {
         <Route path="/inscription">
           <Register />
         </Route>
+        {isLogged && (
+          <Route path="/espace-utilisateur">
+            <UserSpace />
+          </Route>
+        )}
+
         <Route path="/reservation">
           <Reservation />
         </Route>
@@ -54,7 +61,7 @@ const App = ({isLogged, checkLogin}) => {
     </div>
   );
 };
-  
+
 App.propTypes = {
   isLogged: PropTypes.bool.isRequired,
   /** message displayed when "connected" */

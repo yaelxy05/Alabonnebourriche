@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 // == Import
 import "./navDesktop.scss";
 
-const NavLinksDesktop = (props) => {
+const NavLinksDesktop = ({ handleLogout, isLogged }) => {
   return (
     <>
       <ul className="nav_menuLeft">
@@ -36,16 +36,36 @@ const NavLinksDesktop = (props) => {
             Réservation
           </NavLink>
         </li>
-        <li onClick={() => props.isMobile && props.closeMobileMenu()}>
-          <NavLink exact to="/inscription" activeClassName="current">
-            S'inscrire
-          </NavLink>
-        </li>
-        <li onClick={() => props.isMobile && props.closeMobileMenu()}>
-          <NavLink exact to="/connexion" activeClassName="current">
-          Se connecter
-          </NavLink>
-        </li>
+        {isLogged && (
+          <>
+            <li onClick={() => props.isMobile && props.closeMobileMenu()}>
+              <NavLink exact to="/espace-utilisateur" activeClassName="current">
+                Espace utilisateur
+              </NavLink>
+            </li>
+            <button
+              type="button"
+              className="button_logged"
+              onClick={handleLogout}
+            >
+              Déconnexion
+            </button>
+          </>
+        )}
+        {!isLogged && (
+          <>
+            <li onClick={() => props.isMobile && props.closeMobileMenu()}>
+              <NavLink exact to="/inscription" activeClassName="current">
+                S'inscrire
+              </NavLink>
+            </li>
+            <li onClick={() => props.isMobile && props.closeMobileMenu()}>
+              <NavLink exact to="/connexion" activeClassName="current">
+                Se connecter
+              </NavLink>
+            </li>
+          </>
+        )}
       </ul>
     </>
   );
