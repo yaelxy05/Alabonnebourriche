@@ -9,7 +9,7 @@ import Page404 from "src/components/404";
 import Nav from "src/containers/Nav";
 import Restaurant from "src/components/Restaurant";
 import Localisation from "src/components/Localisation";
-import Reservation from "src/components/Reservation";
+import Reservation from "src/containers/Reservation";
 import Register from "src/containers/Register";
 import Login from "src/containers/Login";
 import Menu from "src/components/Menu";

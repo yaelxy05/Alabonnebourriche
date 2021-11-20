@@ -6,14 +6,7 @@ import NavLinksMobile from "./NavLinksMobile";
 import "./nav.scss";
 
 const MobileNavigation = ({isLogged ,handleLogout,toggleMenu, isShow}) => {
-  // function for activate and deactivate the burger menu
-  const [toggle, setToggle] = useState(false);
-  const changeState = () => {
-    //console.log(e.target.value);
-    setToggle(!toggle);
-  };
-  // function that closes the burger menu after clicking
-  const closeMobileMenu = () => setToggle(false);
+
   return (
     <div className="nav_mobile">
       <h1>A la bonne bourriche</h1>
