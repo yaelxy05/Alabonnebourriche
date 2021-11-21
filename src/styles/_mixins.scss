@@ -82,6 +82,11 @@
     @content;
   }
 }
+@mixin for-screen-small-medium {
+  @media  (max-width: 999px) {
+    @content;
+  }
+}
 @mixin for-desktop-small-medium {
   @media (min-width: 900px) and (max-width: 1399px) {
     @content;

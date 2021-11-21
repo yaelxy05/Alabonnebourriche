@@ -1,9 +1,15 @@
 // == Import npm
 import React, { useState } from "react";
-import Calendar from "react-calendar";
 import PropTypes from "prop-types";
+
 // == Import components
 import ReservationField from "./ReservationField";
+import DatePicker from "react-datepicker";
+import { registerLocale, setDefaultLocale } from "react-datepicker";
+import fr from "date-fns/locale/fr";
+registerLocale("fr", fr);
+setDefaultLocale("fr");
+import "react-datepicker/dist/react-datepicker.css";
 // == Import Style
 import "react-calendar/dist/Calendar.css";
 import "./reservation.scss";
@@ -27,7 +33,6 @@ const Reservation = ({
   handleCount,
   handleSelectDate,
 }) => {
-
   const handleReservationSubmit = (evt) => {
     evt.preventDefault();
     handleReservation();
@@ -48,7 +53,8 @@ const Reservation = ({
     evt.preventDefault();
     handleSelect();
   };
-  console.log(selectValue);
+  
+  
   return (
     <div className="reservation">
       <h1>Réservation</h1>
@@ -106,16 +112,20 @@ const Reservation = ({
               </button>
             </div>
           </div>
-          <label>Sélectionnez le jour</label>
-          <Calendar
-            onChange={handleSelectDate}
-            value={date}
-            className="reservation_calendar"
-            tileClassName="reservation_tile"
-            minDate={new Date()}
-            format="MM/dd/yyyy"
-            required
-          />
+          <div className="reservation_input calendar">
+            <label>Sélectionnez le jour</label>
+            <DatePicker
+              selected={date}
+              onChange={handleSelectDate}
+              locale="fr"
+              minDate={new Date()}
+              showDisabledMonthNavigation
+              isClearable={true}
+              dateFormat="dd MMMM yyyy"
+              placeholderText="Selectionnez une date"
+            />
+            {console.log(date)}
+          </div>
           <div className="reservation_input hours">
             <label>Choississez votre heure</label>
             <div className="reservation_wrapper--select">

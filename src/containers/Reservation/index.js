@@ -32,7 +32,9 @@ const mapDispatchToProps = (dispatch) => ({
   handleSelectDate: (date) => {
     const action = selectDate(date);
     dispatch(action)
+    
   },
+  
   decrement: () => {
     dispatch(decrement())
   },

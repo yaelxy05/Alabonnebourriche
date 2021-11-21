@@ -14,6 +14,10 @@
     margin-bottom: 12rem;
 
     form {
+      width:30%;
+      @include mixins.for-tablet-portrait-up {
+        width: 60%;
+      }
       @include mixins.for-phone-only {
         width: 70%;
       }
@@ -49,11 +53,21 @@
             justify-content: center;
           }
           input {
-            width: 60%;
-            margin: 0 1.1rem;
+            width: 65%;
+            margin: 0 0.3rem;
+            @include mixins.for-screen-small-medium {
+              width: 65%;
+            }
+            @include mixins.for-tablet-portrait-up {
+              width: 30%;
+              margin:0 1.1rem;
+              text-align: center;
+              font-weight: bold;
+              padding-left: 0;
+            } 
             @include mixins.for-phone-only {
               width: 100%;
-              margin:0 1rem;
+              margin:0 0.8rem;
               text-align: center;
               font-weight: bold;
               padding-left: 0;
@@ -65,6 +79,9 @@
             @include mixins.for-phone-only {
               width:70%;
             }
+            @include mixins.for-tablet-portrait-up {
+              width: 30%;
+            } 
           }
         }
         .reservation_wrapper--select {
@@ -77,7 +94,26 @@
           }
         }
       }
+      .calendar {
+
+        .react-datepicker__day--selected {
+          background: vars.$colorBorderBottom;
+        }
+        .react-datepicker__header {
+          background:vars.$colorButtonNav;
+          .react-datepicker__day-name {
+            color: vars.$colorLightText!important;
+          }
+          .react-datepicker__current-month {
+            color: vars.$colorLightText;
+            
+          }
+          
+        }
+      }
       .number {
+        display: flex;
+        justify-content: center;
         input[type="number"] {
           -webkit-appearance: textfield;
           -moz-appearance: textfield;
@@ -100,7 +136,7 @@
         margin-top: 0.5rem;
         margin-bottom: 2rem;
         margin-right: 0;
-        width: 371px;
+
 
         .react-calendar__tile--now{      
           background: vars.$colorBorderBottom!important;
