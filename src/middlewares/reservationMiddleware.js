@@ -1,23 +1,15 @@
-import axios from 'axios';
+import axios from "axios";
 
-import { NEW_RESERVATION_CREATION } from 'src/actions/reservation';
+import { NEW_RESERVATION_CREATION } from "src/actions/reservation";
 
-const API_URL = 'http://localhost:8081/api';
+const API_URL = "http://localhost:8081/api";
 
 const reservationMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case NEW_RESERVATION_CREATION: {
-      const {
-        email,
-        name,
-        address,
-        phoneNumber,
-        nbPerson,
-        date,
-        hour,
-      } = store.getState().reservation;
-
-      const newReservation = {
+      const { email, name, address, phoneNumber, nbPerson, date, hour } =
+        store.getState().reservation;
+      const newTitle = {
         email,
         name,
         address,
@@ -26,18 +18,48 @@ const reservationMiddleware = (store) => (next) => (action) => {
         date,
         hour,
       };
-
-   
-      
+      if (localStorage.getItem("token") !== null) {
         axios
-          .post(`${API_URL}/reservation`, newReservation)
+          .post(`${API_URL}/reservation/create`, newTitle, {
+            email: email,
+            name: name,
+            address: address,
+            phoneNumber: phoneNumber,
+            nbPerson: nbPerson,
+            date: date,
+            hour: hour,
+
+            headers: {
+              authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          })
           .then((response) => {
             console.log(response);
           })
           .catch((error) => {
             console.log(error);
           });
-      
+
+        next(action);
+        break;
+      }
+      axios
+        .post(`${API_URL}/reservation/create`, newTitle, {
+          email: email,
+          name: name,
+          address: address,
+          phoneNumber: phoneNumber,
+          nbPerson: nbPerson,
+          date: date,
+          hour: hour,
+        })
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
       next(action);
       break;
     }
