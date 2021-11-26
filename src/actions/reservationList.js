@@ -1,8 +1,11 @@
 // === get reservations list
 export const FETCH_RESERVATION = 'FETCH_RESERVATION';
 export const SAVE_RESERVATION = 'SAVE_RESERVATION';
-export const LOADER = 'LOADER';
 
+// === get users list
+export const FETCH_USER = 'FETCH_USER';
+export const SAVE_USERLIST = 'SAVE_USERLIST';
+export const LOADER = 'LOADER';
 // ====================================
 // =========== get reservations list ==
 export const fetchReservation = () => ({
@@ -16,4 +19,15 @@ export const saveReservation = (reservations) => ({
 
 export const loader = () => ({
   type: LOADER,
+});
+
+// ====================================
+// =========== get reservations list ==
+export const fetchUser = () => ({
+  type: FETCH_USER,
+});
+
+export const saveUserList = (users) => ({
+  type: SAVE_USERLIST,
+  users: users,
 });

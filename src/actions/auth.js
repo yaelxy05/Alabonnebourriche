@@ -4,6 +4,7 @@ export const SAVE_USER = 'SAVE_USER';
 export const LOG_OUT = 'LOG_OUT';
 export const REFRESH_LOGIN = 'REFRESH_LOGIN';
 
+
 export const updateUserField = (newValue, name) => ({
   type: UPDATE_USER_FIELD,
   newValue,

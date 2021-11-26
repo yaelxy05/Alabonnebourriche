@@ -1,11 +1,13 @@
 import {
   SAVE_RESERVATION,
   loader,
+  SAVE_USERLIST,
 } from 'src/actions/reservationList';
 
 const initialState = {
   userSpaceList: [],
   loading: true,
+  users: [],
 }
 
 function userSpaceReducer(state = initialState, action) {
@@ -21,6 +23,12 @@ function userSpaceReducer(state = initialState, action) {
         ...state,
         loading: true,
       };
+      case SAVE_USERLIST:
+        return {
+          ...state,
+          users: action.users,
+          loading: false,
+        };
     default:
       return state;
   }

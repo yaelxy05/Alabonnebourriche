@@ -1,10 +1,14 @@
-import { UPDATE_USER_FIELD, SAVE_USER, LOG_OUT } from 'src/actions/auth';
+import {
+  UPDATE_USER_FIELD,
+  SAVE_USER,
+  LOG_OUT,
+} from "src/actions/auth";
 
 const initialState = {
   // contenu du champ email
-  username: '',
+  username: "",
   // contenu du champ password
-  password: '',
+  password: "",
   // indique si l'utilisateur est authentifié
   isLogged: false,
   // token
@@ -14,43 +18,43 @@ const initialState = {
 function authReducer(state = initialState, action) {
   switch (action.type) {
     case UPDATE_USER_FIELD:
-      if (action.name === 'username') {
+      if (action.name === "username") {
         return {
           ...state,
           username: action.newValue,
         };
       }
-      if (action.name === 'password') {
+      if (action.name === "password") {
         return {
           ...state,
           password: action.newValue,
         };
       }
-      if (action.name === 'confirmPassword') {
+      if (action.name === "confirmPassword") {
         return {
           ...state,
           confirmPassword: action.newValue,
         };
       }
-      if (action.name === 'lastName') {
+      if (action.name === "lastName") {
         return {
           ...state,
           lastName: action.newValue,
         };
       }
-      if (action.name === 'firstName') {
+      if (action.name === "firstName") {
         return {
           ...state,
           firstName: action.newValue,
         };
       }
-      if (action.name === 'address') {
+      if (action.name === "address") {
         return {
           ...state,
           address: action.newValue,
         };
       }
-      if (action.name === 'phoneNumber') {
+      if (action.name === "phoneNumber") {
         return {
           ...state,
           phoneNumber: action.newValue,
@@ -65,17 +69,16 @@ function authReducer(state = initialState, action) {
         ...state,
         isLogged: true,
         token: action.token,
-        username: '',
-        password: '',
+        username: "",
+        password: "",
       };
-
+    
     case LOG_OUT:
       return {
         ...state,
         isLogged: false,
         token: null,
       };
-
     default:
       return state;
   }

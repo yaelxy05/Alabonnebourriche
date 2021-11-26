@@ -1,13 +1,10 @@
-import axios from 'axios';
+import axios from "axios";
 
+import { LOG_IN, saveUser, LOG_OUT, REFRESH_LOGIN } from "src/actions/auth";
 
-import { LOG_IN, saveUser, LOG_OUT, REFRESH_LOGIN } from 'src/actions/auth';
+import { saveReservation } from "src/actions/reservationList";
 
-import {
-  saveReservation,
-} from "src/actions/reservationList";
-
-const API_URL = 'http://localhost:8081/api';
+const API_URL = "http://localhost:8081/api";
 
 const authMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -20,10 +17,10 @@ const authMiddleware = (store) => (next) => (action) => {
           password: password,
         })
         .then((response) => {
-          localStorage.setItem('token', response.data.token);
+          localStorage.setItem("token", response.data.token);
           store.dispatch(saveUser(response.data.token));
           store.dispatch(saveReservation(response.data));
-          window.location = '/espace-utilisateur';
+          window.location = "/espace-utilisateur";
           console.log(response);
         })
         .catch((error) => {
@@ -32,22 +29,22 @@ const authMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
     }
-   
+
     case REFRESH_LOGIN: {
-      if (localStorage.getItem('token') !== null) {
-        store.dispatch(saveUser(localStorage.getItem('token')));
+      if (localStorage.getItem("token") !== null) {
+        store.dispatch(saveUser(localStorage.getItem("token")));
       }
       next(action);
       break;
     }
 
     case LOG_OUT: {
-      window.location = '/';
-      localStorage.removeItem('token');
+      window.location = "/";
+      localStorage.removeItem("token");
       next(action);
       break;
     }
-
+    
     default:
       next(action);
   }
