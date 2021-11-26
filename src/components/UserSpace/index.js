@@ -14,6 +14,7 @@ const UserSpace = ({ reservations, fetchReservation }) => {
     <div className="userspace">
       <h1>Votre espace</h1>
       <div className="userspace_infoUser--box">
+        
         <div className="userspace infoUser">
           <div className="userspace_info userspace_info--h2">
             <h2>NOM PRENOM</h2>
@@ -31,6 +32,7 @@ const UserSpace = ({ reservations, fetchReservation }) => {
             <p>236 route de Rabou</p>
           </div>
         </div>
+
       </div>
       <div className="userspace_reservationList">
         <h2>Mes réservations</h2>
@@ -45,7 +47,7 @@ const UserSpace = ({ reservations, fetchReservation }) => {
             </thead>
             <tbody>
               {reservations && reservations.map((reservationLists) => {
-                const update = new Date(reservationLists.date).toLocaleDateString('fr-FR')
+                const update = new Date(reservationLists.date).toLocaleDateString('fr-FR', options)
                 return (
                   <tr key={reservationLists.id}>
                     <td>{update}</td>
