@@ -7,6 +7,7 @@ const initialState = {
   address: '',
   name: '',
   phoneNumber: '',
+  nameFirst: '',
 };
 
 function registerReducer(state = initialState, action) {
@@ -20,6 +21,7 @@ function registerReducer(state = initialState, action) {
         address: action.name === 'address' ? action.newValue : state.address,
         name: action.name === 'name' ? action.newValue : state.name,
         phoneNumber: action.name === 'phoneNumber' ? action.newValue : state.phoneNumber,
+        nameFirst: action.name === 'nameFirst' ? action.newValue : state.nameFirst,
       };
 
     default:

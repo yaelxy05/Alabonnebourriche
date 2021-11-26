@@ -12,6 +12,7 @@ const Register = ({
   email,
   password,
   name,
+  nameFirst,
   confirmPassword,
   address,
   phoneNumber,
@@ -42,6 +43,14 @@ const Register = ({
               changeFieldRegister(value, identifier)
             }
             value={name}
+          />
+          <RegisterField
+            name="nameFirst"
+            placeholder="Prénom"
+            manageChange={(value, identifier) =>
+              changeFieldRegister(value, identifier)
+            }
+            value={nameFirst}
           />
           <RegisterField
             name="password"

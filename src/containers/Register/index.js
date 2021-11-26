@@ -8,6 +8,7 @@ const mapStateToProps = (state) => ({
   password: state.register.password,
   confirmPassword: state.register.confirmPassword,
   name: state.register.name,
+  nameFirst: state.register.nameFirst,
   address: state.register.address,
   phoneNumber: state.register.phoneNumber,
 });

@@ -14,6 +14,7 @@ const registerMiddleware = (store) => (next) => (action) => {
         name,
         address,
         phoneNumber,
+        nameFirst
       } = store.getState().register;
 
       const newUser = {
@@ -23,6 +24,7 @@ const registerMiddleware = (store) => (next) => (action) => {
         name,
         address,
         phoneNumber,
+        nameFirst
       };
 
       console.log(confirmPassword);

@@ -25,7 +25,7 @@ const UserSpace = ({ reservations, fetchReservation, users, fetchUser }) => {
             return (
               <div className="userspace infoUser" key={user.id}>
                 <div className="userspace_info userspace_info--h2">
-                  <h2>{user.name}</h2>
+                  <h2>{user.name} {user.nameFirst}</h2>
                 </div>
                 <div className="userspace_info">
                   <i className="fas fa-mobile-alt"></i>
