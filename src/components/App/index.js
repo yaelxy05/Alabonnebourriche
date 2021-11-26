@@ -13,12 +13,12 @@ import Reservation from "src/containers/Reservation";
 import Register from "src/containers/Register";
 import Login from "src/containers/Login";
 import Menu from "src/components/Menu";
-import UserSpace from "src/components/UserSpace";
+import UserSpace from "src/containers/UserSpace";
 // == Import
 import "./app.scss";
 
 // == Composant
-const App = ({ isLogged, checkLogin }) => {
+const App = ({ isLogged, checkLogin, loading}) => {
   useEffect(() => {
     checkLogin();
   }, []);
@@ -34,7 +34,7 @@ const App = ({ isLogged, checkLogin }) => {
         </Route>
         {isLogged && (
           <Route path="/espace-utilisateur">
-            <UserSpace />
+            {!loading && <UserSpace />}
           </Route>
         )}
 

@@ -1,8 +1,17 @@
-import { updateReservationField, newReservationCreation, decrement, increment, countPerson, selectHour, selectDate } from 'src/actions/reservation';
+import {
+  updateReservationField,
+  newReservationCreation,
+  decrement,
+  increment,
+  countPerson,
+  selectHour,
+  selectDate,
+} from 'src/actions/reservation';
 
 import { connect } from 'react-redux';
 
 import Reservation from 'src/components/Reservation';
+
 
 const mapStateToProps = (state) => ({
   email: state.reservation.email,
@@ -12,8 +21,8 @@ const mapStateToProps = (state) => ({
   nbPerson: state.reservation.nbPerson,
   date: state.reservation.date,
   hour: state.reservation.hour,
-
 });
+
 
 const mapDispatchToProps = (dispatch) => ({
   changeFieldReservation: (newValue, name) => {
@@ -34,14 +43,13 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(action)
     
   },
-  
   decrement: () => {
-    dispatch(decrement())
+    dispatch(decrement());
   },
   increment: () => {
-    dispatch(increment())
+    dispatch(increment());
   },
-
+  
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Reservation);

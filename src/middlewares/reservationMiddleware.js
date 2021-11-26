@@ -1,6 +1,8 @@
 import axios from "axios";
 
-import { NEW_RESERVATION_CREATION } from "src/actions/reservation";
+import {
+  NEW_RESERVATION_CREATION,
+} from "src/actions/reservation";
 
 const API_URL = "http://localhost:8081/api";
 
@@ -42,7 +44,7 @@ const reservationMiddleware = (store) => (next) => (action) => {
 
         next(action);
         break;
-      }
+      };
       axios
         .post(`${API_URL}/reservation/create`, newTitle, {
           email: email,
@@ -63,6 +65,7 @@ const reservationMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
     }
+    
     default:
       next(action);
   }

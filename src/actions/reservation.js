@@ -6,6 +6,7 @@ export const COUNT_PERSON = 'COUNT_PERSON';
 export const SELECT_HOUR = 'SELECT_HOUR';
 export const SELECT_DATE = 'SELECT_DATE';
 
+
 export const updateReservationField = (newValue, name) => ({
   type: UPDATE_RESERVATION_FIELD,
   newValue,

@@ -32,6 +32,7 @@ const registerMiddleware = (store) => (next) => (action) => {
           .post(`${API_URL}/register`, newUser)
           .then((response) => {
             console.log(response);
+            window.location = '/connexion';
           })
           .catch((error) => {
             console.log(error);

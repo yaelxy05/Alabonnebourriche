@@ -124,7 +124,6 @@ const Reservation = ({
               dateFormat="dd MMMM yyyy"
               placeholderText="Selectionnez une date"
             />
-            {console.log(date)}
           </div>
           <div className="reservation_input hours">
             <label>Choississez votre heure</label>
@@ -168,7 +167,7 @@ Reservation.propTypes = {
   name: PropTypes.string.isRequired,
   changeFieldReservation: PropTypes.func.isRequired,
   /** called when the form is submitted */
-  handleReservationSubmit: PropTypes.func.isRequired,
+  handleReservation: PropTypes.func.isRequired,
   handleSelect: PropTypes.func.isRequired,
   /** value for the email */
   address: PropTypes.string.isRequired,

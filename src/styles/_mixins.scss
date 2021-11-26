@@ -23,6 +23,18 @@
   text-transform: capitalize;
 }
 
+@mixin h2Page {
+  color: vars.$colorBackgroundFooter;
+  font-weight: bold;
+  font-size: vars.$textSize;
+  text-align: center;
+  line-height: 2rem;
+  height: 2rem;
+  margin: 4rem 0 2rem 0;
+  font-family: vars.$dancing;
+  text-transform: capitalize;
+}
+
 @mixin flexStartCenter {
   display: flex;
   justify-content: center;

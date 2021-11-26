@@ -11,4 +11,7 @@
   @include mixins.for-tablet-landscape-up {
     height: 7rem;
   }
+  li {
+    cursor: pointer;
+  }
 }

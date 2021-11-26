@@ -5,6 +5,10 @@ import {
   SELECT_HOUR,
   SELECT_DATE,
 } from "src/actions/reservation";
+
+
+
+
 // variable for define the time zone
 let date = new Date();
 const myTimeZone = 1;
@@ -15,7 +19,7 @@ const initialState = {
   name: "",
   phoneNumber: "",
   nbPerson: 1,
-  date: new Date(date.setTime( date.getTime() + myTimeZone * 60 * 60 * 1000 )),
+  date: new Date(date.setTime(date.getTime() + myTimeZone * 60 * 60 * 1000)),
   hour: "",
 };
 
@@ -33,12 +37,12 @@ function reservationReducer(state = initialState, action) {
         hour: action.hour === "hour" ? action.newValue : state.hour,
         date: action.date === "date" ? action.newValue : state.date,
       };
-      case SELECT_DATE:
-        return {
-          ...state,
-          date: action.date,
-        };
-        
+    case SELECT_DATE:
+      return {
+        ...state,
+        date: action.date,
+      };
+
     case INCREMENT:
       return {
         ...state,
@@ -54,7 +58,6 @@ function reservationReducer(state = initialState, action) {
         ...state,
         hour: action.hour,
       };
-      
     default:
       return state;
   }

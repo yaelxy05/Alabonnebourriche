@@ -1,8 +1,11 @@
 import axios from 'axios';
 
+
 import { LOG_IN, saveUser, LOG_OUT, REFRESH_LOGIN } from 'src/actions/auth';
 
-
+import {
+  saveReservation,
+} from "src/actions/reservationList";
 
 const API_URL = 'http://localhost:8081/api';
 
@@ -19,6 +22,8 @@ const authMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           localStorage.setItem('token', response.data.token);
           store.dispatch(saveUser(response.data.token));
+          store.dispatch(saveReservation(response.data));
+          window.location = '/espace-utilisateur';
           console.log(response);
         })
         .catch((error) => {

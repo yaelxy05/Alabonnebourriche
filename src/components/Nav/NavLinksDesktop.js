@@ -43,13 +43,11 @@ const NavLinksDesktop = ({ handleLogout, isLogged }) => {
                 Espace utilisateur
               </NavLink>
             </li>
-            <button
-              type="button"
+            <li
               className="button_logged"
-              onClick={handleLogout}
-            >
-              Déconnexion
-            </button>
+              onClick={handleLogout}>
+                Déconnexion
+            </li>
           </>
         )}
         {!isLogged && (
