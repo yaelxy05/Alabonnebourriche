@@ -14,6 +14,7 @@ import Register from "src/containers/Register";
 import Login from "src/containers/Login";
 import Menu from "src/components/Menu";
 import UserSpace from "src/containers/UserSpace";
+import ProtectedRoute from "./ProtectedRoute";
 // == Import
 import "./app.scss";
 
@@ -32,12 +33,6 @@ const App = ({ isLogged, checkLogin, loading}) => {
         <Route path="/inscription">
           <Register />
         </Route>
-        {isLogged && (
-          <Route path="/espace-utilisateur">
-            {!loading && <UserSpace />}
-          </Route>
-        )}
-
         <Route path="/reservation">
           <Reservation />
         </Route>
@@ -57,6 +52,7 @@ const App = ({ isLogged, checkLogin, loading}) => {
           <Page404 />
         </Route>
       </Switch>
+      <ProtectedRoute isLogged={isLogged} loading={loading}/>
       <Footer />
     </div>
   );
