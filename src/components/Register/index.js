@@ -1,5 +1,5 @@
 // == Import npm
-import React from "react";
+import React, { useEffect } from 'react';
 // == Import components
 import RegisterField from "./RegisterField";
 import PropTypes from 'prop-types';
@@ -18,11 +18,18 @@ const Register = ({
   phoneNumber,
   changeFieldRegister,
   handleRegister,
+  signupError,
+  signupResponse,
+  messagesError,
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleRegister();
   };
+  useEffect(() => {
+    signupError([]);
+    signupResponse({});
+  }, []);
   return (
     <div className="Inscription">
       <h1>Inscription</h1>
@@ -91,6 +98,15 @@ const Register = ({
               S'inscrire
             </button>
           </div>
+          {messagesError.length > 0
+            && messagesError.map((element) => (
+              <p
+                className="signup__error"
+                key={Object.values(element)[0]}
+              >
+                {Object.values(element)[0]}
+              </p>
+            ))}
         </form>
       </div>
     </div>

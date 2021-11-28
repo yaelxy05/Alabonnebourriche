@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { updateRegisterField, newUserCreation } from 'src/actions/register';
+import { updateRegisterField, newUserCreation, signupError, signupResponse } from 'src/actions/register';
 import Register from 'src/components/Register';
 
 const mapStateToProps = (state) => ({
@@ -11,6 +11,9 @@ const mapStateToProps = (state) => ({
   nameFirst: state.register.nameFirst,
   address: state.register.address,
   phoneNumber: state.register.phoneNumber,
+  // message success and error
+  messagesError: state.register.messagesError,
+  response: state.register.response,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -21,6 +24,14 @@ const mapDispatchToProps = (dispatch) => ({
   handleRegister: () => {
     console.log('click');
     dispatch(newUserCreation());
+  },
+  signupError: (message) => {
+    dispatch(signupError(message));
+  },
+  // on se sert de cette fonction ci-dessous pour re-initialiser
+  // le tableau de réponse ds création de cpte
+  signupResponse: (response) => {
+    dispatch(signupResponse(response));
   },
 });
 

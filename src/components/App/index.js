@@ -13,7 +13,7 @@ import Reservation from "src/containers/Reservation";
 import Register from "src/containers/Register";
 import Login from "src/containers/Login";
 import Menu from "src/components/Menu";
-import UserSpace from "src/containers/UserSpace";
+
 import ProtectedRoute from "./ProtectedRoute";
 // == Import
 import "./app.scss";
