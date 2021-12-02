@@ -1,9 +1,12 @@
-import axios from 'axios';
+import axios from "axios";
 
-import { NEW_USER_CREATION, signupResponse,
-  signupError, } from 'src/actions/register';
+import {
+  NEW_USER_CREATION,
+  signupResponse,
+  getError,
+} from "src/actions/register";
 
-const API_URL = 'http://localhost:8081/api';
+const API_URL = "http://localhost:8081/api";
 
 const registerMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -15,7 +18,7 @@ const registerMiddleware = (store) => (next) => (action) => {
         name,
         address,
         phoneNumber,
-        nameFirst
+        nameFirst,
       } = store.getState().register;
 
       const newUser = {
@@ -25,7 +28,7 @@ const registerMiddleware = (store) => (next) => (action) => {
         name,
         address,
         phoneNumber,
-        nameFirst
+        nameFirst,
       };
 
       console.log(confirmPassword);
@@ -39,19 +42,6 @@ const registerMiddleware = (store) => (next) => (action) => {
             //window.location = '/connexion';
           })
           .catch((error) => {
-            const { violations } = error.response.data;
-            console.log(violations);
-            if (violations) {
-              const message = {};
-              violations.forEach(({ propertyPath, title }) => {
-                message[propertyPath] = title;
-              })
-              console.log([message]);
-              store.dispatch(signupError([message])); 
-              
-            }
-;
-            
           });
       }
       next(action);

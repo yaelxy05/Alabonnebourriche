@@ -1,7 +1,6 @@
 import {
   UPDATE_REGISTER_FIELD,
   SIGNUP_RESPONSE,
-  SIGNUP_ERROR,
 } from "src/actions/register";
 
 const initialState = {
@@ -12,7 +11,6 @@ const initialState = {
   name: "",
   phoneNumber: "",
   nameFirst: "",
-  messagesError: [],
   response: {},
 };
 
@@ -38,11 +36,6 @@ function registerReducer(state = initialState, action) {
       return {
         ...state,
         response: action.response,
-      };
-    case SIGNUP_ERROR:
-      return {
-        ...state,
-        messagesError: [...action.message],
       };
     default:
       return state;

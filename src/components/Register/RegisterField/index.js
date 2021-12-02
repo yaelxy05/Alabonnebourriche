@@ -1,20 +1,19 @@
 // == Import : npm
 import React from 'react';
 import PropTypes from 'prop-types';
-
 // == Import : local
 import '../register.scss';
 
 // == Composant
-const RegisterField = ({ value, type, name, placeholder, manageChange }) => {
+const RegisterField = ({ value, type, name, placeholder, manageChange, errors }) => {
   const handleChange = (evt) => {
     manageChange(evt.target.value, name);
   };
 
   const inputId = `registerfield-${name}`;
-
+ 
   return (
-    <div className="Inscription_input">
+    <div className={errors ? "Inscription_input--error" : "Inscription_input"}>
       <label htmlFor={inputId}>
         {placeholder}
       </label>
@@ -27,6 +26,7 @@ const RegisterField = ({ value, type, name, placeholder, manageChange }) => {
         type={type}
         placeholder={placeholder}
         name={name}
+        
       />
     </div>
   );

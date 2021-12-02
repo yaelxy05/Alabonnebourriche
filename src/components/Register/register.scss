@@ -17,7 +17,29 @@
       @include mixins.for-phone-only {
         width: 70%;
       }
+      .signup__error {
+        color: vars.$colorError;
+        font-weight: bold;
+        margin-bottom: 2rem;
+      }
+      .Inscription_input--error {
+        margin-bottom: 0.2rem;
+        input {
+          height: 3rem;
+          width: 100%;
+          padding-left: 1rem;
+          margin-top: 0.5rem;
+          border: solid vars.$colorError 1.5px;
 
+          &:focus {
+            border-bottom: 3.5px solid vars.$colorBorderBottom;
+          }
+        }
+
+        label {
+          font-weight: bold;
+        }
+      }
       .Inscription_input {
         margin-bottom: 2rem;
         input {
