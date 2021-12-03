@@ -23,11 +23,13 @@ const Register = ({
 }) => {
   let errorsObj = { email: '', password: '' , name: '', address: '', nameFirst: '', phoneNumber: '', confirmPassword: ''};
   const [errors, setErrors] = useState(errorsObj);
-
+  const [success, setSuccess] = useState(false)
+ 
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleRegister();
     let error = false;
+
     const errorObj = { ...errorsObj };
     if (email === '') {
       errorObj.email = 'L\'email est requis.';
@@ -35,10 +37,12 @@ const Register = ({
     }
     else if (!/\S+@\S+\.\S+/.test(email)) {
       errorObj.email = "l'email n'est pas valide."
-    }
+    } 
     else if (email.length < 4) {
       errorObj.email = 'Le champ email est trop court.';
       error = true;
+    } else if ( email.length > 4 && /\S+@\S+\.\S+/.test(email) && email !== ''){
+      setSuccess(true);
     }
     if (password === '') {
       errorObj.password = "Le mot de passe est requis.";
@@ -52,6 +56,9 @@ const Register = ({
       errorObj.password = "Les champs mot de passe doivent être identique."
       error = true;
     }
+    else if ( password === confirmPassword && password !== '' && password.length > 6) {
+      setSuccess(true);
+    }
     if (name === '') {
       errorObj.name = "Le nom est requis.";
       error = true;
@@ -60,9 +67,15 @@ const Register = ({
       errorObj.name = "Le nom doit contenir minimum 6 caractères."
       error = true;
     }
+    else {
+      setSuccess(true);
+    }
     if (address === '') {
       errorObj.address = "L'adresse est requise."
       error = true;
+    }
+    else {
+      setSuccess(true);
     }
     if (phoneNumber === '') {
       errorObj.phoneNumber = "Le numéros de téléphone est requis."
@@ -76,6 +89,9 @@ const Register = ({
       errorObj.phoneNumber = "le numéros de téléphone doit contenir uniquement des chiffres"
       error = true;
     }
+    else {
+      setSuccess(true);
+    }
     if (nameFirst === '') {
       errorObj.nameFirst = "Le prénom est requis.";
       error = true;
@@ -84,11 +100,10 @@ const Register = ({
       errorObj.nameFirst = "Le prénom doit contenir minimum 6 caractères."
       error = true;
     }
-    setErrors(errorObj);
-
-    if (!error) {
-      console.log('form submit');
+    else {
+      setSuccess(true);
     }
+    setErrors(errorObj);
   };
   
   return (
@@ -104,6 +119,7 @@ const Register = ({
             }
             value={email}
             errors={errors.email}
+            success={success}
           />
           {errors.email && <div className="signup__error">{errors.email}</div>}
           <RegisterField
@@ -114,6 +130,7 @@ const Register = ({
             }
             value={name}
             errors={errors.name}
+            success={success}
           />
           {errors.name && <div className="signup__error">{errors.name}</div>}
           <RegisterField
@@ -124,6 +141,7 @@ const Register = ({
             }
             value={nameFirst}
             errors={errors.nameFirst}
+            success={success}
           />
           {errors.nameFirst && <div className="signup__error">{errors.nameFirst}</div>}
           <RegisterField
@@ -135,6 +153,7 @@ const Register = ({
             }
             value={password}
             errors={errors.password}
+            success={success}
           />
           {errors.password && <div className="signup__error">{errors.password}</div>}
           <RegisterField
@@ -146,6 +165,7 @@ const Register = ({
             }
             value={confirmPassword}
             errors={errors.password}
+            success={success}
           />
           {errors.password && <div className="signup__error"></div>}
           <RegisterField
@@ -156,6 +176,7 @@ const Register = ({
             }
             value={phoneNumber}
             errors={errors.phoneNumber}
+            success={success}
           />
           {errors.phoneNumber && <div className="signup__error">{errors.phoneNumber}</div>}
           <RegisterField
@@ -166,6 +187,7 @@ const Register = ({
             }
             value={address}
             errors={errors.address}
+            success={success}
           />
           {errors.address && <div className="signup__error">{errors.address}</div>}
           <div className="button_submit">

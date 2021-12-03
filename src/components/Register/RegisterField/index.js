@@ -1,33 +1,42 @@
 // == Import : npm
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 // == Import : local
-import '../register.scss';
+import "../register.scss";
 
 // == Composant
-const RegisterField = ({ value, type, name, placeholder, manageChange, errors }) => {
+const RegisterField = ({
+  value,
+  type,
+  name,
+  placeholder,
+  manageChange,
+  errors,
+  success,
+}) => {
   const handleChange = (evt) => {
     manageChange(evt.target.value, name);
   };
 
   const inputId = `registerfield-${name}`;
- 
+  console.log(success);
   return (
     <div className={errors ? "Inscription_input--error" : "Inscription_input"}>
-      <label htmlFor={inputId}>
-        {placeholder}
-      </label>
-      <input
-        // React - state
-        value={value}
-        onChange={handleChange}
-        // infos de base
-        id={inputId}
-        type={type}
-        placeholder={placeholder}
-        name={name}
+      <label htmlFor={inputId}>{placeholder}</label>
         
+        <input
+          // React - state
+          value={value}
+          onChange={handleChange}
+          // infos de base
+          id={inputId}
+          type={type}
+          placeholder={placeholder}
+          name={name}
+          className={success ? "input--success" : ""}
       />
+      {!errors && success && (<i className="fas fa-check"></i>)}
+      {errors && !success && (<i className="fas fa-times"></i>)}
     </div>
   );
 };
@@ -50,8 +59,8 @@ RegisterField.propTypes = {
 
 // Valeurs par défaut pour les props
 RegisterField.defaultProps = {
-  value: '',
-  type: 'text',
+  value: "",
+  type: "text",
 };
 
 // == Export
