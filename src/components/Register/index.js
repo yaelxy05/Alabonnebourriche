@@ -64,31 +64,28 @@ const Register = ({
       error = true;
     }
     else if (name.length < 2) {
-      errorObj.name = "Le nom doit contenir minimum 6 caractères."
+      errorObj.name = "Le nom doit contenir minimum 6 caractères.";
       error = true;
     }
     else {
       setSuccess(true);
     }
     if (address === '') {
-      errorObj.address = "L'adresse est requise."
+      errorObj.address = "L'adresse est requise.";
       error = true;
     }
     else {
       setSuccess(true);
     }
     if (phoneNumber === '') {
-      errorObj.phoneNumber = "Le numéros de téléphone est requis."
+      errorObj.phoneNumber = "Le numéros de téléphone est requis.";
       error = true;
     }
-    else if (phoneNumber < 8) {
-      errorObj.phoneNumber = "le numéros de téléphone doit avoir minimum 8 caractères."
+    else if (!/^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$/.test(phoneNumber)) {
+      errorObj.phoneNumber = "Veuillez saisir un numéros de téléphone valide";
       error = true;
     }
-    else if (!/[0-9]/.test(email)) {
-      errorObj.phoneNumber = "le numéros de téléphone doit contenir uniquement des chiffres"
-      error = true;
-    }
+
     else {
       setSuccess(true);
     }
@@ -97,7 +94,7 @@ const Register = ({
       error = true;
     }
     else if (nameFirst.length < 2) {
-      errorObj.nameFirst = "Le prénom doit contenir minimum 6 caractères."
+      errorObj.nameFirst = "Le prénom doit contenir minimum 6 caractères.";
       error = true;
     }
     else {

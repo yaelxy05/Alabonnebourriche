@@ -23,7 +23,9 @@ const RegisterField = ({
   return (
     <div className={errors ? "Inscription_input--error" : "Inscription_input"}>
       <label htmlFor={inputId}>{placeholder}</label>
-        
+      <div className="icon_wrapper">
+      {success &&  (<i className="fas fa-check"></i>)}
+      {errors && (<i className="fas fa-exclamation-circle"></i>)}
         <input
           // React - state
           value={value}
@@ -34,9 +36,8 @@ const RegisterField = ({
           placeholder={placeholder}
           name={name}
           className={success ? "input--success" : ""}
-      />
-      {!errors && success && (<i className="fas fa-check"></i>)}
-      {errors && !success && (<i className="fas fa-times"></i>)}
+        />
+        </div>
     </div>
   );
 };
