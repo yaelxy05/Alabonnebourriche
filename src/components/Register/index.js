@@ -42,7 +42,7 @@ const Register = ({
     else if (email.length < 4) {
       errorObj.email = 'Le champ email est trop court.';
       error = true;
-    } else if (messagesError === 'Il y a déjà un compte avec cette email') {
+    } else if (messagesError) {
       errorObj.email = 'Il y a déjà un compte avec cette email.';
       error = true;
     } else if ( email.length > 4 && /\S+@\S+\.\S+/.test(email) && email !== ''){
