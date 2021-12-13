@@ -15,7 +15,7 @@ const UserSpace = ({ reservations, fetchReservation, users, fetchUser }) => {
     month: "long",
     day: "numeric",
   };
-
+  
   return (
     <div className="userspace">
       <h1>Votre espace</h1>

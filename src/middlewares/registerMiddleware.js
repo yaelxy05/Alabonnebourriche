@@ -4,6 +4,7 @@ import {
   NEW_USER_CREATION,
   signupResponse,
   getError,
+  signupError
 } from "src/actions/register";
 
 const API_URL = "http://localhost:8081/api";
@@ -38,10 +39,23 @@ const registerMiddleware = (store) => (next) => (action) => {
           .post(`${API_URL}/register`, newUser)
           .then((response) => {
             console.log(response.data);
-            store.dispatch(signupResponse(response.data));
+            store.dispatch(signupResponse(response.data.email));
             //window.location = '/connexion';
           })
           .catch((error) => {
+            console.log(error);
+            const { violations } = error.response.data;
+            console.log(violations);
+            if (violations) {
+              const message = {};
+              violations.forEach(({ propertyPath, title }) => {
+                message[propertyPath] = title;
+              })
+              console.log(message.email);
+              store.dispatch(signupError(message.email)); 
+
+            }
+  
           });
       }
       next(action);

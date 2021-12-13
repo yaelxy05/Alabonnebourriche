@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { updateRegisterField, newUserCreation, signupResponse } from 'src/actions/register';
+import { updateRegisterField, newUserCreation, signupResponse, signupError } from 'src/actions/register';
 import Register from 'src/components/Register';
 
 const mapStateToProps = (state) => ({
@@ -13,6 +13,7 @@ const mapStateToProps = (state) => ({
   phoneNumber: state.register.phoneNumber,
   // message success and error
   response: state.register.response,
+  messagesError: state.register.messagesError,
 
 });
 
@@ -29,6 +30,10 @@ const mapDispatchToProps = (dispatch) => ({
   // le tableau de réponse ds création de cpte
   signupResponse: (response) => {
     dispatch(signupResponse(response));
+  },
+
+  signupError: (message) => {
+    dispatch(signupError(message));
   },
 });
 

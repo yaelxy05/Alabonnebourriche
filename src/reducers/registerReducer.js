@@ -1,7 +1,4 @@
-import {
-  UPDATE_REGISTER_FIELD,
-  SIGNUP_RESPONSE,
-} from "src/actions/register";
+import { UPDATE_REGISTER_FIELD, SIGNUP_RESPONSE, SIGNUP_ERROR } from "src/actions/register";
 
 const initialState = {
   email: "",
@@ -12,6 +9,7 @@ const initialState = {
   phoneNumber: "",
   nameFirst: "",
   response: {},
+  messagesError: "",
 };
 
 function registerReducer(state = initialState, action) {
@@ -36,6 +34,11 @@ function registerReducer(state = initialState, action) {
       return {
         ...state,
         response: action.response,
+      };
+    case SIGNUP_ERROR:
+      return {
+        ...state,
+        messagesError: action.message,
       };
     default:
       return state;

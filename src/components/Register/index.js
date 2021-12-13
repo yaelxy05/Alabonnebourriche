@@ -1,5 +1,5 @@
 // == Import npm
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // == Import components
 import RegisterField from "./RegisterField";
@@ -19,7 +19,8 @@ const Register = ({
   phoneNumber,
   changeFieldRegister,
   handleRegister,
-
+  messagesError,
+  signupError,
 }) => {
   let errorsObj = { email: '', password: '' , name: '', address: '', nameFirst: '', phoneNumber: '', confirmPassword: ''};
   const [errors, setErrors] = useState(errorsObj);
@@ -41,9 +42,12 @@ const Register = ({
     else if (email.length < 4) {
       errorObj.email = 'Le champ email est trop court.';
       error = true;
+    } else if (messagesError === 'Il y a déjà un compte avec cette email') {
+      errorObj.email = 'Il y a déjà un compte avec cette email.';
+      error = true;
     } else if ( email.length > 4 && /\S+@\S+\.\S+/.test(email) && email !== ''){
       setSuccess(true);
-    }
+    } 
     if (password === '') {
       errorObj.password = "Le mot de passe est requis.";
       error = true;
@@ -102,7 +106,10 @@ const Register = ({
     }
     setErrors(errorObj);
   };
-  
+  useEffect(() => {
+    signupError([]);
+  }, []);
+  console.log(messagesError);
   return (
     <div className="Inscription">
       <h1>Inscription</h1>
@@ -119,6 +126,7 @@ const Register = ({
             success={success}
           />
           {errors.email && <div className="signup__error">{errors.email}</div>}
+      
           <RegisterField
             name="name"
             placeholder="Nom"
@@ -192,6 +200,7 @@ const Register = ({
               S'inscrire
             </button>
           </div>
+          
         </form>
       </div>
     </div>
