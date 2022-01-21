@@ -22,86 +22,99 @@ const Register = ({
   messagesError,
   signupError,
 }) => {
-  let errorsObj = { email: '', password: '' , name: '', address: '', nameFirst: '', phoneNumber: '', confirmPassword: ''};
+  let errorsObj = {
+    email: "",
+    password: "",
+    name: "",
+    address: "",
+    nameFirst: "",
+    phoneNumber: "",
+    confirmPassword: "",
+  };
   const [errors, setErrors] = useState(errorsObj);
-  const [success, setSuccess] = useState(false)
- 
+  const [success, setSuccess] = useState(false);
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleRegister();
     let error = false;
 
     const errorObj = { ...errorsObj };
-    if (email === '') {
-      errorObj.email = 'L\'email est requis.';
+    if (email === "") {
+      errorObj.email = "L'email est requis.";
       error = true;
-    }
-    else if (!/\S+@\S+\.\S+/.test(email)) {
-      errorObj.email = "l'email n'est pas valide."
-    } 
-    else if (email.length < 4) {
-      errorObj.email = 'Le champ email est trop court.';
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      errorObj.email = "l'email n'est pas valide.";
+    } else if (email.length < 4) {
+      errorObj.email = "Le champ email est trop court.";
       error = true;
     } else if (messagesError) {
-      errorObj.email = 'Il y a déjà un compte avec cette email.';
+      errorObj.email = "Il y a déjà un compte avec cette email.";
       error = true;
-    } else if ( email.length > 4 && /\S+@\S+\.\S+/.test(email) && email !== ''){
+    } else if (email.length > 4 && /\S+@\S+\.\S+/.test(email) && email !== "") {
       setSuccess(true);
-    } 
-    if (password === '') {
+    }
+
+    if (password === "") {
       errorObj.password = "Le mot de passe est requis.";
       error = true;
-    }
-    else if (password.length < 6) {
-      errorObj.password = "Le mot de passe doit contenir minimum 6 caractères."
+    } else if (password.length < 6) {
+      errorObj.password = "Le mot de passe doit contenir minimum 6 caractères.";
       error = true;
-    }
-    else if (password !== confirmPassword) {
-      errorObj.password = "Les champs mot de passe doivent être identique."
+    } else if (password !== confirmPassword) {
+      errorObj.password = "Les champs mot de passe doivent être identique.";
       error = true;
-    }
-    else if ( password === confirmPassword && password !== '' && password.length > 6) {
+    } else if (
+      password === confirmPassword &&
+      password !== "" &&
+      password.length > 6
+    ) {
       setSuccess(true);
     }
-    if (name === '') {
+    if (name === "") {
       errorObj.name = "Le nom est requis.";
       error = true;
-    }
-    else if (name.length < 2) {
+    } else if (name.length < 2) {
       errorObj.name = "Le nom doit contenir minimum 6 caractères.";
       error = true;
     }
+    else if (!/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u.test(name)) {
+      errorObj.name = "Le nom ne doit pas contenir de chiffres.";
+      error = true;
+    }
     else {
       setSuccess(true);
     }
-    if (address === '') {
+    if (address === "") {
       errorObj.address = "L'adresse est requise.";
       error = true;
-    }
-    else {
+    } else {
       setSuccess(true);
     }
-    if (phoneNumber === '') {
+    if (phoneNumber === "") {
       errorObj.phoneNumber = "Le numéros de téléphone est requis.";
       error = true;
-    }
-    else if (!/^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$/.test(phoneNumber)) {
+    } else if (
+      !/^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$/.test(
+        phoneNumber
+      )
+    ) {
       errorObj.phoneNumber = "Veuillez saisir un numéros de téléphone valide";
       error = true;
-    }
-
-    else {
+    } else {
       setSuccess(true);
     }
-    if (nameFirst === '') {
+    if (nameFirst === "") {
       errorObj.nameFirst = "Le prénom est requis.";
       error = true;
-    }
-    else if (nameFirst.length < 2) {
+    } else if (nameFirst.length < 2) {
       errorObj.nameFirst = "Le prénom doit contenir minimum 6 caractères.";
       error = true;
     }
-    else {
+    else if (!/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u.test(nameFirst)) {
+      errorObj.nameFirst = "Le nom ne doit pas contenir de chiffres.";
+      error = true;
+    }else {
       setSuccess(true);
     }
     setErrors(errorObj);
@@ -126,7 +139,6 @@ const Register = ({
             success={success}
           />
           {errors.email && <div className="signup__error">{errors.email}</div>}
-      
           <RegisterField
             name="name"
             placeholder="Nom"
@@ -148,7 +160,9 @@ const Register = ({
             errors={errors.nameFirst}
             success={success}
           />
-          {errors.nameFirst && <div className="signup__error">{errors.nameFirst}</div>}
+          {errors.nameFirst && (
+            <div className="signup__error">{errors.nameFirst}</div>
+          )}
           <RegisterField
             name="password"
             type="password"
@@ -160,7 +174,9 @@ const Register = ({
             errors={errors.password}
             success={success}
           />
-          {errors.password && <div className="signup__error">{errors.password}</div>}
+          {errors.password && (
+            <div className="signup__error">{errors.password}</div>
+          )}
           <RegisterField
             name="confirmPassword"
             type="password"
@@ -183,7 +199,9 @@ const Register = ({
             errors={errors.phoneNumber}
             success={success}
           />
-          {errors.phoneNumber && <div className="signup__error">{errors.phoneNumber}</div>}
+          {errors.phoneNumber && (
+            <div className="signup__error">{errors.phoneNumber}</div>
+          )}
           <RegisterField
             name="address"
             placeholder="Adresse"
@@ -194,13 +212,14 @@ const Register = ({
             errors={errors.address}
             success={success}
           />
-          {errors.address && <div className="signup__error">{errors.address}</div>}
+          {errors.address && (
+            <div className="signup__error">{errors.address}</div>
+          )}
           <div className="button_submit">
             <button type="submit" className="Inscription_button">
               S'inscrire
             </button>
           </div>
-          
         </form>
       </div>
     </div>

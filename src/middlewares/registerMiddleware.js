@@ -32,30 +32,18 @@ const registerMiddleware = (store) => (next) => (action) => {
         nameFirst,
       };
 
-      console.log(confirmPassword);
-      console.log(password);
+
       if (password === confirmPassword) {
         axios
           .post(`${API_URL}/register`, newUser)
           .then((response) => {
             console.log(response.data);
             store.dispatch(signupResponse(response.data.email));
-            //window.location = '/connexion';
+            window.location = '/connexion';
           })
           .catch((error) => {
-            console.log(error);
-            const { violations } = error.response.data;
-            console.log(violations);
-            if (violations) {
-              const message = {};
-              violations.forEach(({ propertyPath, title }) => {
-                message[propertyPath] = title;
-              })
-              console.log(message.email);
-              store.dispatch(signupError(message.email)); 
-
-            }
-  
+            console.log(error.response.data.error.email);
+            store.dispatch(signupError(error.response.data.error.email));
           });
       }
       next(action);

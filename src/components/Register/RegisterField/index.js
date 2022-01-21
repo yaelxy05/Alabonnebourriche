@@ -19,7 +19,7 @@ const RegisterField = ({
   };
 
   const inputId = `registerfield-${name}`;
-  console.log(success);
+ 
   return (
     <div className={errors ? "Inscription_input--error" : "Inscription_input"}>
       <label htmlFor={inputId}>{placeholder}</label>
