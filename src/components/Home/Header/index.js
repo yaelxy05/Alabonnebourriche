@@ -1,5 +1,6 @@
 // == Import npm
 import React from 'react';
+import { NavLink } from "react-router-dom";
 // == Import components
 
 
@@ -12,7 +13,7 @@ const Header = () => (
   <div className="header">
     <div className="header_picture--button">
       <img className="header_logo" src={logo} alt="logo bonne bourriche" />
-      <button className="header_button">Découvrez notre carte</button>
+      <button className="header_button"><NavLink exact to="/notre-carte" activeClassName="current">Découvrez notre carte</NavLink></button>
     </div>
   </div>
 );

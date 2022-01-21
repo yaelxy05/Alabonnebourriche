@@ -1,6 +1,7 @@
 // == Import npm
 import React from "react";
 import Header from "./Header";
+import { NavLink } from "react-router-dom";
 // == Import
 import "./home.scss";
 // == Import img
@@ -33,7 +34,7 @@ const Home = () => (
             Envie d'une délicieuse dégustation de coquillages et crustacés ?
             C'est l'adresse idéale ! Découvrez vite notre carte et réservez.
           </p>
-          <button>Réservez une table</button>
+          <button><NavLink exact to="/reservation" activeClassName="current">Réservez une table</NavLink></button>
         </div>
       </div>
     </div>
