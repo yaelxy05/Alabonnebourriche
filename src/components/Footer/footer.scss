@@ -3,83 +3,79 @@
 
 .footer {
   height: 27rem;
+  width: 100%;
   background: vars.$colorBackgroundFooter;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   @include mixins.for-phone-and-tablet-only {
-    height: 40rem;
+    height: 50rem;
   }
-
+  @include mixins.for-desktop-small-medium {
+    height: 35rem;
+  }
   .footer_wrapper {
-    width: 90%;
+    width: 85%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: flex-start;
+    @include mixins.for-desktop-small-medium {
+      width: 70%;
+    }
     @include mixins.for-phone-and-tablet-only {
       flex-direction: column;
       align-items: center;
       width: 100%;
     }
- 
-    img {
-      height: 12rem;
-      width: auto;
-      background: vars.$colorLightText;
-      border-radius: 20rem;
-      @include mixins.for-phone-and-tablet-only {
-        margin-bottom: 2rem;
-      }
-    }
 
     .footer_info {
       display: flex;
-      
+      justify-content: center;
+      align-items: flex-start;
+      margin-top: 3rem;
+      @include mixins.for-desktop-small-medium {
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+      }
       @include mixins.for-phone-and-tablet-only {
         flex-direction: column;
-        width: 50%;
+        width: 58%;
       }
-
+      @include mixins.for-tablet-portrait-up {
+        flex-direction: column;
+        width: 40%;
+      }
       .footer_horaire {
-      line-height: 2rem;
-      margin-right: 3rem;
-      @include mixins.for-phone-and-tablet-only {
-        margin-right: 0;
-        margin-top: 2rem;
-      }
-      @include mixins.for-desktop-small-medium {
-        margin-left: 3rem;
-      }
-      h3 {
-        color: vars.$colorLightText;
-        font-weight: bold;
-      }
+        line-height: 2rem;
+        margin-right: 3rem;
+        @include mixins.for-phone-and-tablet-only {
+          margin-right: 0;
+          margin-bottom: 2rem;
+        }
+        @include mixins.for-desktop-small-medium {
+          margin-left: 0rem;
+          margin-bottom: 2rem;
+          margin-right: 5rem;
+        }
+        h3 {
+          color: vars.$colorLightText;
+          font-weight: bold;
+        }
 
-      p {
-        color: vars.$colorTextFooter;
-        font-weight: bold;
+        p {
+          color: vars.$colorTextFooter;
+          font-weight: bold;
+          width: 15rem;
+          @include mixins.for-desktop-small-medium {
+            font-size: 1rem;
+          }
+          @include mixins.for-phone-only {
+            width: 15rem;
+          }
+        }
       }
     }
-
-    .footer_address {
-      line-height: 2rem;
-      margin-left: 3rem;
-      @include mixins.for-phone-and-tablet-only {
-        margin-left: 0;
-        margin-top: 2rem;
-      }
-
-      h3 {
-        color: vars.$colorLightText;
-        font-weight: bold;
-      }
-
-      p {
-        color: vars.$colorTextFooter;
-        font-weight: bold;
-      }
-    }
-    }
-    
   }
 }

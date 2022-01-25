@@ -1,4 +1,39 @@
-@use 'src/styles/vars';
+@use "src/styles/vars";
+
+@mixin buttonBlue {
+  width: 12rem;
+  height: 3rem;
+  background: vars.$colorButtonNav;
+  color: vars.$colorLightText;
+  font-weight: bold;
+  border: none;
+  border-radius: 10rem;
+  margin-top: 2rem;
+}
+
+@mixin h1Page {
+  color: vars.$colorBackgroundFooter;
+  font-weight: bold;
+  font-size: vars.$textSizeBig + 1;
+  text-align: center;
+  line-height: 4rem;
+  height: 3rem;
+  margin: 8rem 0;
+  font-family: vars.$dancing;
+  text-transform: capitalize;
+}
+
+@mixin h2Page {
+  color: vars.$colorBackgroundFooter;
+  font-weight: bold;
+  font-size: vars.$textSize;
+  text-align: center;
+  line-height: 2rem;
+  height: 2rem;
+  margin: 4rem 0 2rem 0;
+  font-family: vars.$dancing;
+  text-transform: capitalize;
+}
 
 @mixin flexStartCenter {
   display: flex;
@@ -56,6 +91,11 @@
 }
 @mixin for-tablet-landscape-up {
   @media (min-width: 900px) {
+    @content;
+  }
+}
+@mixin for-screen-small-medium {
+  @media  (max-width: 999px) {
     @content;
   }
 }

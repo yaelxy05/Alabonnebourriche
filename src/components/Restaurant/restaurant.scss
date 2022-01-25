@@ -1,0 +1,89 @@
+@use "src/styles/vars";
+@use "src/styles/mixins";
+
+.restaurant {
+  min-height: 100%;
+  h1 {
+    @include mixins.h1Page;
+    @include mixins.for-phone-only {
+      font-size: 3.5rem;
+    }
+  }
+
+  .restaurant_presentation {
+    .restaurant_picture_box {
+      display: flex;
+      flex-direction: column;
+
+      img {
+        margin-bottom: 2rem;
+      }
+    }
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 5rem;
+    @include mixins.for-phone-and-tablet-only {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin: 5rem 0 5rem 0;
+    }
+
+    img {
+      height: 30rem;
+      width: auto;
+      margin-right: 2rem;
+      @include mixins.for-desktop-small-medium {
+        height: 30rem;
+      }
+      @include mixins.for-tablet-portrait-up {
+        height: 25rem;
+        margin-bottom: 2rem;
+        margin-right: 0;
+      }
+      @include mixins.for-phone-only {
+        height: 12rem;
+        margin-bottom: 2rem;
+        margin-right: 0;
+      }
+    }
+
+    .restaurant_description {
+      display: flex;
+      flex-direction: column;
+      @include mixins.for-phone-and-tablet-only {
+        justify-content: center;
+      }
+
+      p {
+        width: 30rem;
+        font-size: vars.$textSizeSmall + 0.5;
+        color: vars.$colorBackgroundFooter;
+        text-align: left;
+        @include mixins.for-desktop-small-medium {
+          width: 20rem;
+        }
+        @include mixins.for-phone-only {
+          width: 15rem;
+        }
+      }
+      button {
+        width: 12rem;
+        height: 3rem;
+        background: vars.$colorButtonNav;
+        color: vars.$colorLightText;
+        font-weight: bold;
+        border: none;
+        border-radius: 10rem;
+        margin-top: 2rem;
+        align-self: flex-start;
+        @include mixins.for-phone-and-tablet-only {
+          align-self: center;
+        }
+      }
+    }
+  }
+}

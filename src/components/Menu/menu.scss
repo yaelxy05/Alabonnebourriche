@@ -1,0 +1,92 @@
+@use "src/styles/vars";
+@use "src/styles/mixins";
+
+.menu {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  h1 {
+    @include mixins.h1Page;
+  }
+  h2 {
+    font-weight: bold;
+    color: vars.$colorTextFooter;
+  }
+  .menu_wrapper {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column; 
+
+    .menu_box {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin-bottom: 4rem;
+
+      h2 {
+        align-self: center;
+        margin-bottom: 2rem;
+        font-size: vars.$textSize;
+        @include mixins.for-phone-only {
+          font-size: vars.$textSizeMedium;
+        }
+      }
+
+      .menu_description {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        margin-bottom: 2rem;;
+        
+        @include mixins.for-phone-and-tablet-only {
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+        img {
+          height: 15rem;
+          width: 20rem;
+          margin-right: 2rem;
+          border-radius: 1rem;
+          @include mixins.for-phone-and-tablet-only {
+            margin: 1rem 0;
+            height: 14rem;
+            width:18rem;
+          }
+        }
+        .menu_information {
+          width: 17rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          .menu_information--title {
+            font-weight: bold;
+            font-family: vars.$dancing;
+            color: vars.$colorBackgroundFooter;
+            font-size: vars.$textSizeMedium;
+            @include mixins.for-phone-and-tablet-only {
+              margin-bottom: 1rem;
+            }
+          }
+
+          .menu_information--description {
+            color: vars.$colorTextMenu;
+            font-family: vars.$indie;
+            font-size: vars.$textSizeMedium;
+          }
+          
+          .menu_information--price {
+            font-weight: bold;
+            align-self: flex-end;
+            font-family: vars.$dancing;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,114 @@
+@use "src/styles/vars";
+@use "src/styles/mixins";
+
+.userspace {
+  min-height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  h1 {
+    @include mixins.h1Page;
+  }
+
+  .userspace_infoUser--box {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 40rem;
+    height: 20rem;
+    padding: 1rem 0 0 3.5rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 2px 1px -1px rgb(0 0 0 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%),
+      0 1px 3px 0 rgb(0 0 0 / 12%);
+    border: 1px solid #bec7e6;
+    border-radius: 2px;
+    color: #051039;
+
+    &:hover {
+      box-shadow: 0 3px 3px -2px rgb(0 0 0 / 20%), 0 3px 4px 0 rgb(0 0 0 / 14%),
+        0 1px 8px 0 rgb(0 0 0 / 12%);
+      transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    h2 {
+      font-weight: bold;
+      color: vars.$colorButtonNav;
+      text-transform: capitalize;
+      font-size: vars.$textSizeMedium;
+      margin-bottom: 1.7rem;
+      font-family: vars.$cabin;
+    }
+
+    .userspace_info {
+      display: flex;
+      align-self: flex-start;
+      align-items: flex-start;
+      margin-top: 1.5rem;
+
+      p {
+        text-align: justify;
+      }
+      .fas {
+        width: calc(1em / 16 * 24);
+        height: calc(1em / 16 * 24);
+        font-size: 1rem;
+        margin-right: 1rem;
+        align-self: center;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .userspace_reservationList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  
+    h2 {
+      @include mixins.h2Page;
+    }
+    .userspace_reservationList--table {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      width: 40rem;
+      margin-bottom: 15rem;
+      table {
+        box-shadow: 0 2px 1px -1px rgb(0 0 0 / 20%),
+          0 1px 1px 0 rgb(0 0 0 / 14%), 0 1px 3px 0 rgb(0 0 0 / 12%);
+        border: 1.5px solid #bec7e6;
+        border-radius: 2px;
+        width: 100%;
+
+        &:hover {
+          box-shadow: 0 3px 3px -2px rgb(0 0 0 / 20%),
+            0 3px 4px 0 rgb(0 0 0 / 14%), 0 1px 8px 0 rgb(0 0 0 / 12%);
+          transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        thead {
+          width: 100%;
+          text-align: center;
+          font-weight: bold;
+
+          td {
+            border: 1px solid #dbe3ff;
+            padding: 1rem;
+            color: vars.$colorButtonNav;
+          }
+        }
+
+        tbody {
+          text-align: center;
+
+          td {
+            border: 1px solid #dbe3ff;
+            padding: 1rem;
+          }
+        }
+      }
+    }
+  }
+}

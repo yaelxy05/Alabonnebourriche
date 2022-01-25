@@ -1,0 +1,119 @@
+@use "src/styles/vars";
+@use "src/styles/mixins";
+
+.Inscription {
+  min-height: 100%;
+
+  h1 {
+    @include mixins.h1Page;
+  }
+
+  .Inscription_wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 12rem;
+
+    form {
+      @include mixins.for-phone-only {
+        width: 70%;
+      }
+      .signup__error {
+        color: vars.$colorError;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        font-size: 0.9rem;
+      }
+      .Inscription_input--error {
+        margin-bottom: 0.2rem;
+        .icon_wrapper {
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          i {
+            position: absolute;
+          }
+          .fa-check {
+            display: none;
+            
+          }
+          .fa-exclamation-circle {
+            padding-right: 16px;
+            margin-top: 6px;
+            color: red;
+            min-width: 31px;
+            min-height: 32px;
+            align-self: flex-end;
+
+          }
+          input {
+            height: 3.5rem;
+            width: 25rem;
+            padding-left: 1rem;
+            margin-top: 0.5rem;
+            border-radius: 0.5rem;
+            border: solid vars.$colorError 2px;
+
+            &:focus {
+              border-bottom: 3.5px solid vars.$colorBorderBottom;
+            }
+          }
+        }
+
+        label {
+          font-weight: bold;
+        }
+      }
+      .Inscription_input {
+        margin-bottom: 2rem;
+        label {
+          font-weight: bold;
+        }
+        .icon_wrapper {
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          i {
+            position: absolute;
+          }
+          .fa-check {
+            padding-right: 16px;
+            margin-top: 6px;
+            color: green;
+            min-width: 50px;
+            text-align: right;
+          }
+          input {
+            height: 3rem;
+            width: 25rem;
+            padding-left: 1rem;
+            margin-top: 0.5rem;
+            border-radius: 0.5rem;
+            border: solid vars.$colorBackgroundFooter 1px;
+
+            &:focus {
+              border-bottom: 3.5px solid vars.$colorBorderBottom;
+            }
+          }
+          .input--success {
+            border-radius: 0.5rem;
+            border: solid green 2px;
+          }
+          label {
+            font-weight: bold;
+          }
+        }
+      }
+      .button_submit {
+        display: flex;
+        justify-content: center;
+
+        .Inscription_button {
+          @include mixins.buttonBlue;
+          align-self: center;
+        }
+      }
+    }
+  }
+}

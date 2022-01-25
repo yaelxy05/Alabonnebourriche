@@ -10,16 +10,7 @@
   margin-bottom: 10rem;
 
   h1 {
-    color: vars.$colorBackgroundFooter;
-    font-weight: bold;
-    font-size: vars.$textSizeBig + 1;
-    text-align: center;
-    line-height: 4rem;
-    height: 3rem;
-    margin: 8rem 0;
-    font-family: vars.$dancing;
-    text-transform: capitalize;
-
+    @include mixins.h1Page;
     span {
       font-size: vars.$textSize;
     }
@@ -65,7 +56,7 @@
       p {
         width: 30rem;
         line-height: 1.5rem;
-        color: vars.$colorTextPara;
+        color: vars.$colorBackgroundFooter;
         @include mixins.for-desktop-small-medium {
           width: 20rem;
         }
@@ -79,6 +70,7 @@
         height: 3rem;
         background: vars.$colorButtonNav;
         color: vars.$colorLightText;
+        font-weight: bold;
         border: none;
         border-radius: 10rem;
         margin-top: 2rem;

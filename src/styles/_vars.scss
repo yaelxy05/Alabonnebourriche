@@ -2,10 +2,12 @@
 $colorButtonNav: #004AAD;
 $colorLightText: #FFFFFF;
 $colorTextH1: #2D476B;
+$colorTextMenu: #0594D0;
 $colorTextPara: #38B6FF;
 $colorTextFooter: #E4AB1C;
 $colorBackgroundFooter: #2D476B;
 $colorBackgroundBlackTransparent: rgba(255, 255, 255, 0.5);
+$colorError: rgb(211, 0, 0);
 // == Color waiting
 $colorTitleMenu: #2f4558;
 $colorPara: #335f8a;
@@ -15,18 +17,15 @@ $colorIcon: rgb(0, 0, 0);
 $colorBorderPrimary: rgb(0, 0, 0);
 $colorBorderBottom: #f26619;
 $color-border-bottom: rgb(0, 0, 0);
-// == text size waiting
 // == Text size
 $sizeTitle: 2rem;
 $sizeTitlePhone: 1.5rem;
 $sizeButton: 1rem;
-// == Police
-$policeTitle: 'Lobster', cursive;
-$police404: 'Dancing Script', cursive;
 // == Text Shadow
 $textShadowHeader: -1px 6px 9px #000000;
 // == Text size
 $textSize: 2rem;
+$textSizeMedium: 1.5rem;
 $textSizeSmall: $textSize - 1;
 $textSizeBig: $textSize + 1;
 // == Margin and Padding
@@ -37,3 +36,5 @@ $marginBig: $margin + 1;
 $festive: 'Festive', cursive;
 $dancing: 'Dancing Script', cursive;
 $indie: 'Indie Flower', cursive;
+$policeTitle: 'Lobster', cursive;
+$cabin: 'Cabin', sans-serif;
