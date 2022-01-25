@@ -7,7 +7,7 @@ import {
   signupError
 } from "src/actions/register";
 
-const API_URL = "http://localhost:8081/api";
+const API_URL = "https://bonnebourricheback.yaelhue-creation.com/api";
 
 const registerMiddleware = (store) => (next) => (action) => {
   switch (action.type) {

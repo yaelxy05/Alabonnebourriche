@@ -4,7 +4,7 @@ import { LOG_IN, saveUser, LOG_OUT, REFRESH_LOGIN } from "src/actions/auth";
 
 import { saveReservation } from "src/actions/reservationList";
 
-const API_URL = "http://localhost:8081/api";
+const API_URL = "https://bonnebourricheback.yaelhue-creation.com/api";
 
 const authMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
