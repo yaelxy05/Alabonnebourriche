@@ -3,6 +3,7 @@
 
 .footer {
   height: 27rem;
+  width: 100%;
   background: vars.$colorBackgroundFooter;
   display: flex;
   justify-content: center;
@@ -11,14 +12,16 @@
   @include mixins.for-phone-and-tablet-only {
     height: 50rem;
   }
-
+  @include mixins.for-desktop-small-medium {
+    height: 35rem;
+  }
   .footer_wrapper {
     width: 85%;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     @include mixins.for-desktop-small-medium {
-      width: 80%;
+      width: 70%;
     }
     @include mixins.for-phone-and-tablet-only {
       flex-direction: column;
@@ -54,6 +57,7 @@
         @include mixins.for-desktop-small-medium {
           margin-left: 0rem;
           margin-bottom: 2rem;
+          margin-right: 5rem;
         }
         h3 {
           color: vars.$colorLightText;
@@ -63,7 +67,7 @@
         p {
           color: vars.$colorTextFooter;
           font-weight: bold;
-          width: 22rem;
+          width: 15rem;
           @include mixins.for-desktop-small-medium {
             font-size: 1rem;
           }
