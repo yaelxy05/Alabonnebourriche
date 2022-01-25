@@ -24,7 +24,7 @@ const Login = ({
   
   return (
     <div className="login">
-      <h1>Connexion</h1>
+      
       <div className="login_wrapper">
         {isLogged && (
           <div className="login-form--logged">
@@ -32,6 +32,8 @@ const Login = ({
           </div>
         )}
         {!isLogged && (
+          <>
+          <h1>Connexion</h1>
           <form action="" onSubmit={handleSubmit}>
             <LoginField
               name="username"
@@ -51,7 +53,8 @@ const Login = ({
                 Se connecter
               </button>
             </div>
-          </form>
+            </form>
+            </>
         )}
       </div>
     </div>
