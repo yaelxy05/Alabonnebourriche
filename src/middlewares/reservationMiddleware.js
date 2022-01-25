@@ -4,7 +4,7 @@ import {
   NEW_RESERVATION_CREATION,
 } from "src/actions/reservation";
 
-const API_URL = "http://localhost:8081/api";
+const API_URL = "https://bonnebourricheback.yaelhue-creation.com/api";
 
 const reservationMiddleware = (store) => (next) => (action) => {
   switch (action.type) {

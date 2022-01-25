@@ -7,7 +7,7 @@ import {
   saveUserList
 } from "src/actions/reservationList";
 
-const API_URL = "http://localhost:8081/api";
+const API_URL = "https://bonnebourricheback.yaelhue-creation.com/api";
 
 const reservationListMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
