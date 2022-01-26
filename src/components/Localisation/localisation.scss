@@ -2,13 +2,18 @@
 @use "src/styles/mixins";
 
 .localisation {
-  min-height: 100%;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   h1 {
     @include mixins.h1Page;
+    margin-bottom: 1rem;
   }
 
   .localisation_map {
+    bottom: 0;
     .marker-label {
       margin-bottom: 2.9rem;
       opacity: 0.8;
