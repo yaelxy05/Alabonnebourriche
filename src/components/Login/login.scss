@@ -45,6 +45,8 @@
           width: 100%;
           padding-left: 1rem;
           border: solid vars.$colorBackgroundFooter 1px;
+          border-radius: 0.5rem;
+          margin-top: 0.5rem;
 
           &:focus {
             border-bottom: 3.5px solid vars.$colorBorderBottom;

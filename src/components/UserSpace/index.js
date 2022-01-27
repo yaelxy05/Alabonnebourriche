@@ -8,7 +8,7 @@ const UserSpace = ({ reservations, fetchReservation, users, fetchUser }) => {
     fetchReservation();
     fetchUser();
   }, []);
-  console.log(users);
+ 
   let options = {
     weekday: "long",
     year: "numeric",
