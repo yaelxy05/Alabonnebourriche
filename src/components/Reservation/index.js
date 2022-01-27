@@ -102,7 +102,7 @@ const Reservation = ({
   useEffect(() => {
     signupError([]);
   }, []);
-  console.log(messagesError);
+  
   const handleCountPerson = (evt) => {
     evt.preventDefault();
     handleCount();
