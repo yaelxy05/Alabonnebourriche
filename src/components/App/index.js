@@ -1,6 +1,6 @@
 // == Import npm
 import React, { useEffect } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 // == Import components
 import Home from "src/components/Home";
@@ -14,12 +14,12 @@ import Register from "src/containers/Register";
 import Login from "src/containers/Login";
 import Menu from "src/components/Menu";
 
-import ProtectedRoute from "./ProtectedRoute";
+
 // == Import
 import "./app.scss";
 
 // == Composant
-const App = ({ isLogged, checkLogin, loading}) => {
+const App = ({ isLogged, checkLogin, loading }) => {
   useEffect(() => {
     checkLogin();
   }, []);
@@ -45,6 +45,14 @@ const App = ({ isLogged, checkLogin, loading}) => {
         <Route path="/restaurant">
           <Restaurant />
         </Route>
+        {isLogged ? (
+          <Route exact path="/espace-utilisateur">
+            {!loading && <UserSpace />}
+          </Route>
+        ) : (
+          <Redirect to="/connexion"></Redirect>
+        )}
+
         <Route path="/" exact>
           <Home />
         </Route>
@@ -52,7 +60,7 @@ const App = ({ isLogged, checkLogin, loading}) => {
           <Page404 />
         </Route>
       </Switch>
-      <ProtectedRoute isLogged={isLogged} loading={loading}/>
+      
       <Footer />
     </div>
   );

@@ -7,7 +7,7 @@ import {
   selectHour,
   selectDate,
 } from 'src/actions/reservation';
-
+import { signupError } from 'src/actions/register';
 import { connect } from 'react-redux';
 
 import Reservation from 'src/components/Reservation';
@@ -21,6 +21,7 @@ const mapStateToProps = (state) => ({
   nbPerson: state.reservation.nbPerson,
   date: state.reservation.date,
   hour: state.reservation.hour,
+  messagesError: state.register.messagesError,
 });
 
 
@@ -49,7 +50,9 @@ const mapDispatchToProps = (dispatch) => ({
   increment: () => {
     dispatch(increment());
   },
-  
+  signupError: (message) => {
+    dispatch(signupError(message));
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Reservation);
