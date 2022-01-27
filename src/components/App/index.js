@@ -14,6 +14,7 @@ import Register from "src/containers/Register";
 import Login from "src/containers/Login";
 import Menu from "src/components/Menu";
 
+import ProtectedRoute from "./ProtectedRoute";
 
 // == Import
 import "./app.scss";
@@ -45,13 +46,6 @@ const App = ({ isLogged, checkLogin, loading }) => {
         <Route path="/restaurant">
           <Restaurant />
         </Route>
-        {isLogged ? (
-          <Route exact path="/espace-utilisateur">
-            {!loading && <UserSpace />}
-          </Route>
-        ) : (
-          <Redirect to="/connexion"></Redirect>
-        )}
 
         <Route path="/" exact>
           <Home />
@@ -60,7 +54,7 @@ const App = ({ isLogged, checkLogin, loading }) => {
           <Page404 />
         </Route>
       </Switch>
-      
+      <ProtectedRoute isLogged={isLogged} loading={loading}/>
       <Footer />
     </div>
   );
