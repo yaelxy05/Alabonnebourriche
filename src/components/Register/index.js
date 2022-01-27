@@ -123,7 +123,7 @@ const Register = ({
   useEffect(() => {
     signupError([]);
   }, []);
-  console.log(messagesError);
+
   return (
     <div className="Inscription">
       <h1>Inscription</h1>
