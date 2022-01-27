@@ -1,12 +1,20 @@
 // == Import : npm
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 // == Import : local
-import '../reservation.scss';
+import "../reservation.scss";
 
 // == Composant
-const ReservationField = ({ value, type, name, placeholder, manageChange }) => {
+const ReservationField = ({
+  value,
+  type,
+  name,
+  placeholder,
+  manageChange,
+  errors,
+  success,
+}) => {
   const handleChange = (evt) => {
     manageChange(evt.target.value, name);
   };
@@ -14,20 +22,23 @@ const ReservationField = ({ value, type, name, placeholder, manageChange }) => {
   const inputId = `reservationfield-${name}`;
 
   return (
-    <div className="reservation_input">
-      <label htmlFor={inputId}>
-        {placeholder}
-      </label>
-      <input
-        // React - state
-        value={value}
-        onChange={handleChange}
-        // infos de base
-        id={inputId}
-        type={type}
-        placeholder={placeholder}
-        name={name}
-      />
+    <div className={errors ? "reservation_input--error" : "reservation_input"}>
+      <label htmlFor={inputId}>{placeholder}</label>
+      <div className="icon_wrapper">
+      {success &&  (<i className="fas fa-check"></i>)}
+      {errors && (<i className="fas fa-exclamation-circle"></i>)}
+        <input
+          // React - state
+          value={value}
+          onChange={handleChange}
+          // infos de base
+          id={inputId}
+          type={type}
+          placeholder={placeholder}
+          name={name}
+          className={success ? "input--success" : ""}
+        />
+      </div>
     </div>
   );
 };
@@ -50,8 +61,8 @@ ReservationField.propTypes = {
 
 // Valeurs par défaut pour les props
 ReservationField.defaultProps = {
-  value: '',
-  type: 'text',
+  value: "",
+  type: "text",
 };
 
 // == Export

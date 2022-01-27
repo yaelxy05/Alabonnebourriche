@@ -1,5 +1,5 @@
 // == Import npm
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 // == Import components
@@ -13,6 +13,7 @@ import "react-datepicker/dist/react-datepicker.css";
 // == Import Style
 import "react-calendar/dist/Calendar.css";
 import "./reservation.scss";
+import "../Register/register.scss";
 
 // == Import img
 
@@ -32,11 +33,76 @@ const Reservation = ({
   increment,
   handleCount,
   handleSelectDate,
+  messagesError,
+  signupError,
 }) => {
+  let errorsObj = {
+    email: "",
+    name: "",
+    address: "",
+    phoneNumber: "",
+  };
+  const [errors, setErrors] = useState(errorsObj);
+  const [success, setSuccess] = useState(false);
   const handleReservationSubmit = (evt) => {
     evt.preventDefault();
     handleReservation();
+    let error = false;
+
+    const errorObj = { ...errorsObj };
+    if (email === "") {
+      errorObj.email = "L'email est requis.";
+      error = true;
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      errorObj.email = "l'email n'est pas valide.";
+    } else if (email.length < 4) {
+      errorObj.email = "Le champ email est trop court.";
+      error = true;
+    } else if (email.length > 4 && /\S+@\S+\.\S+/.test(email) && email !== "") {
+      setSuccess(true);
+    }
+
+    if (name === "") {
+      errorObj.name = "Le nom est requis.";
+      error = true;
+    } else if (name.length < 2) {
+      errorObj.name = "Le nom doit contenir minimum 6 caractères.";
+      error = true;
+    } else if (
+      !/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u.test(
+        name
+      )
+    ) {
+      errorObj.name = "Le nom ne doit pas contenir de chiffres.";
+      error = true;
+    } else {
+      setSuccess(true);
+    }
+    if (address === "") {
+      errorObj.address = "L'adresse est requise.";
+      error = true;
+    } else {
+      setSuccess(true);
+    }
+    if (phoneNumber === "") {
+      errorObj.phoneNumber = "Le numéros de téléphone est requis.";
+      error = true;
+    } else if (
+      !/^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$/.test(
+        phoneNumber
+      )
+    ) {
+      errorObj.phoneNumber = "Veuillez saisir un numéros de téléphone valide";
+      error = true;
+    } else {
+      setSuccess(true);
+    }
+    setErrors(errorObj);
   };
+  useEffect(() => {
+    signupError([]);
+  }, []);
+  console.log(messagesError);
   const handleCountPerson = (evt) => {
     evt.preventDefault();
     handleCount();
@@ -53,8 +119,7 @@ const Reservation = ({
     evt.preventDefault();
     handleSelect();
   };
-  
-  
+
   return (
     <div className="reservation">
       <h1>Réservation</h1>
@@ -68,7 +133,10 @@ const Reservation = ({
               changeFieldReservation(value, identifier)
             }
             value={name}
+            errors={errors.name}
+            success={success}
           />
+          {errors.name && <div className="signup__error">{errors.name}</div>}
           <ReservationField
             name="phoneNumber"
             placeholder="Numéros de téléphone"
@@ -76,7 +144,12 @@ const Reservation = ({
               changeFieldReservation(value, identifier)
             }
             value={phoneNumber}
+            errors={errors.phoneNumber}
+            success={success}
           />
+          {errors.phoneNumber && (
+            <div className="signup__error">{errors.phoneNumber}</div>
+          )}
           <ReservationField
             name="email"
             placeholder="Adresse Email"
@@ -84,7 +157,10 @@ const Reservation = ({
               changeFieldReservation(value, identifier)
             }
             value={email}
+            errors={errors.email}
+            success={success}
           />
+          {errors.email && <div className="signup__error">{errors.email}</div>}
           <ReservationField
             name="address"
             placeholder="Adresse"
@@ -92,8 +168,12 @@ const Reservation = ({
               changeFieldReservation(value, identifier)
             }
             value={address}
+            errors={errors.address}
+            success={success}
           />
-
+          {errors.address && (
+            <div className="signup__error">{errors.address}</div>
+          )}
           <div className="reservation_input number">
             <label>Nombre de personne(s) : </label>
             <div className="reservation_wrapper--button">

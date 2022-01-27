@@ -6,6 +6,7 @@ import RegisterField from "./RegisterField";
 import PropTypes from "prop-types";
 // == Import
 import "./register.scss";
+
 // == Import img
 
 // == Composant
