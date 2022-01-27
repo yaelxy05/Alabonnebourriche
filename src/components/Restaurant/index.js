@@ -1,5 +1,6 @@
 // == Import npm
 import React from "react";
+import { NavLink } from "react-router-dom";
 // == Import components
 
 // == Import
@@ -22,7 +23,7 @@ const Restaurant = () => (
           Venez savourez de délicieux plateaux de fruits de mer, accompagnés
           d'un pain de seigle préparé avec soin par notre boulanger du village.
         </p>
-        <button>Réservez une table</button>
+        <button><NavLink exact to="/reservation" activeClassName="current">Réservez une table</NavLink></button>
       </div>
     </div>
   </div>
